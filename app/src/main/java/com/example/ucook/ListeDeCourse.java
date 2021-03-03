@@ -1,5 +1,8 @@
 package com.example.ucook;
 
 public class ListeDeCourse {
-    contain
+    ArrayList<Ingredient> TabIngredients;
+    ArrayList<Int> TabQuantite;
+
+
 }
