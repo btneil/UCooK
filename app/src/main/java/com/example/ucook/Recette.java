@@ -1,3 +1,5 @@
+package com.example.ucook;
+
 public class Recette {
     String Nom, Instructions;
     int Temps, Note, Difficulté, NbPersones;
