@@ -6,7 +6,9 @@ public class Composition {
     ArrayList<Ingredient> TabIngredient = new ArrayList<Ingredient>();
     ArrayList<Integer> TabQuantite = new ArrayList<Integer>();
 
-    public Composition(Ingredient ti,Integer tq){
+    public Composition(Ingredient ti, Integer tq){
+        TabIngredient = ti;
+        TabQuantite = tq;
 
     }
 
