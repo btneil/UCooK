@@ -7,7 +7,8 @@ public class Ingredient {
         Nom=nom;
         Type=type;
 
+
     }
-% ma grosse bite OULALALA QU'ELLE EST GR0SSE'
+
 
 }
