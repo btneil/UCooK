@@ -8,6 +8,6 @@ public class Ingredient {
         Type=type;
 
     }
-% ma grosse bite
+% ma grosse bite OULALALA QU'ELLE EST GR0SSE'
 
 }
