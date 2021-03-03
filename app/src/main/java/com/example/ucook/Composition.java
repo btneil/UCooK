@@ -7,6 +7,7 @@ public class Composition {
     ArrayList<Integer> TabQuantite = new ArrayList<Integer>();
     //bxl zoo gang la meilleure cocaine
     public Composition(Ingredient ti,Integer tq){
+
     }
 
 
