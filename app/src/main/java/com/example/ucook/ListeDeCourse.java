@@ -1,5 +1,10 @@
 package com.example.ucook;
 
+import java.util.ArrayList;
+
 public class ListeDeCourse {
-    contain
+    ArrayList<Ingredient> TabIngredients;
+    ArrayList<Integer> TabQuantite;
+
+
 }
