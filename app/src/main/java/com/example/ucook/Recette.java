@@ -15,11 +15,11 @@ public class Recette {
 
     /*public Recette(String nom, String instruction, int temps, int note, int difficulte, int nbpersonnes){
         Nom=nom;
-        Instructions=instruction;
+        Instructions=instructions;
         Temps=temps;
         Note=note;
         Difficulte=difficulte;
-        NbPersones=nbpersonnes;
+        NbPersonnes=nbpersonnes;
     }*/
 
     public Recette(){ // Test
