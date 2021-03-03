@@ -10,62 +10,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //COUCOU LES KAUPAINS XD
 
+        Recette CroqueMonsieur = new Recette();
+        CroqueMonsieur.ImporterRecette();
+        System.out.println("Bonjour");
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //LA meilleure
 }
