@@ -7,6 +7,7 @@ public class Ingredient {
         Nom=nom;
         Type=type;
 
+
     }
 //test 12
 
