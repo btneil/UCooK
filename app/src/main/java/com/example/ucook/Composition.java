@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Composition {
     ArrayList<Ingredient> TabIngredient = new ArrayList<Ingredient>();
-    ArrayList<String> TabQuantite = new ArrayList<String>();
+    ArrayList<Integer> TabQuantite = new ArrayList<Integer>();
     //bxl zoo gang la meilleure cocaine
-    public Composition(ArrayList ti,ArrayList tq){
-}
+    public Composition(ArrayList<Ingredient> ti,ArrayList<Integer> tq){
+    }
 
 
 }
