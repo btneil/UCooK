@@ -11,7 +11,7 @@ public class Composition {
         rct = r;
         ignd = i;
         quantite = q;
-        //lol
+        //loly
 
 }
 
