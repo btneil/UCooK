@@ -3,14 +3,15 @@ package com.example.ucook;
 import java.util.ArrayList;
 
 public class Composition {
-    ArrayList<Ingredient> TabIngredient = new ArrayList<Ingredient>();
-    ArrayList<Integer> TabQuantite = new ArrayList<Integer>();
+    Ingredient Ign;
+    int Quantite;
 
-    public Composition(Ingredient ti, Integer tq){
-        TabIngredient = ti;
-        TabQuantite = tq;
-
+    public Composition(Ingredient ign, int quantite){
+        Ign=ign;
+        Quantite=quantite;
     }
 
-
 }
+
+
+
