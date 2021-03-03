@@ -11,9 +11,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         Recette CroqueMonsieur = new Recette();
         CroqueMonsieur.ImporterRecette();
+        System.out.println("Bonjour");
     }
 
 }
