@@ -7,6 +7,9 @@ public class ListeDeCourse {
 
 
 
+
+
+
 }
 
 public void MettreDansLePanier(Recette recette){
