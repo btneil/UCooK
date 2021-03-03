@@ -7,7 +7,7 @@ ArrayList<Ingrédient> TabIngredient = new ArrayList<Ingrédient>();
 ArrayList<String> TabQuantite = new ArrayList<String>();
 
 public Composition(){
-
+//lol
 
 }
 
