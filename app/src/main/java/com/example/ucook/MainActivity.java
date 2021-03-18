@@ -11,8 +11,8 @@ import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button Recette_Btn;
-    private Button Panier_Btn;
+    private Button Menu_btn;
+    private Button Connexion_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,22 +22,22 @@ public class MainActivity extends AppCompatActivity {
         Recette CroqueMonsieur = new Recette();
         System.out.println("Bonjour");
 
-        this.Recette_Btn = findViewById(R.id.Recette_Btn);
-        this.Panier_Btn =  findViewById(R.id.Panier_Btn);
+        this.Menu_btn = findViewById(R.id.Menu_btn);
+        this.Connexion_btn =  findViewById(R.id.Connexion_btn);
 
-        Recette_Btn.setOnClickListener(new View.OnClickListener() {
+        Menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Aff_recette = new Intent(getApplicationContext(), AffichageRecette.class);
-                startActivity(Aff_recette);
+                Intent Aff_Menu = new Intent(getApplicationContext(), MenuPrincipal.class);
+                startActivity(Aff_Menu);
                 finish();
             }
         });
-        Panier_Btn.setOnClickListener(new View.OnClickListener() {
+        Connexion_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Aff_panier = new Intent(getApplicationContext(), AfficherPanier.class);
-                startActivity(Aff_panier);
+                Intent Aff_PageDeConnexion = new Intent(getApplicationContext(), PageDeConnexion.class);
+                startActivity(Aff_PageDeConnexion);
                 finish();
             }
         });

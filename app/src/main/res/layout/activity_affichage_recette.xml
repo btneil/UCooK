@@ -21,4 +21,20 @@
         android:text="Retour"
         tools:layout_editor_absoluteX="-3dp"
         tools:layout_editor_absoluteY="1dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="10dp"
+        tools:layout_marginRight="10dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter au panier"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="600dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
