@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/Menu_btn"
+        android:id="@+id/Connexion_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="100dp"
@@ -24,7 +24,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/Connexion_btn"
+            android:id="@+id/Panier_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -32,7 +32,7 @@
             android:text="Panier" />
 
         <Button
-            android:id="@+id/Panier_btn"
+            android:id="@+id/Menu_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
