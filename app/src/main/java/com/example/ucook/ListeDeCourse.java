@@ -72,7 +72,6 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
                     // xml main_activity_base_adapter
                     itemView = LayoutInflater.from(ListeDeCourse.this).inflate(R.layout.activity_element_liste, null);
                 }
-
                 // On récupere les 3 cases (image + zone identite + zone age de ce modele)
                 // on va les remplir par la suite avec les valeurs à affcher pour cette ligne
                 // ImageView imageView = (ImageView) itemView.findViewById(R.id.baseUserImage);
