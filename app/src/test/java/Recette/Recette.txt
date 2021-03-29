@@ -1,5 +1,6 @@
 *
-Croque-Monsieur Mozarella - Avocat - Tomate
+Croque-Monsieur
+Mozarella/Avocat/Tomate
 15
 4/5
 Simple
