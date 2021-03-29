@@ -93,6 +93,12 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
 
             }
 
+        };
+        // de retour dans la methode onCreate :  on récupere enfin la listView pour affichage
+        ListView lv_Etudiants  = (ListView)findViewById(R.id.listView_Compo);
+        // on l'associe au customAdapter. et voila
+        lv_Etudiants.setAdapter(customBaseAdapter);
+
 
     /*public void MettreDansLePanier(Recette recette) {
         //while (recette.TabComposition.hasNext());
@@ -117,6 +123,5 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
 
 
     }*/
-        };
     }
 }

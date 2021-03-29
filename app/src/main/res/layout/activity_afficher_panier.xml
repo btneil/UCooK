@@ -42,7 +42,8 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:layout_editor_absoluteX="0dp">
 
-        <ScrollView
+        <ListView
+            android:id="@+id/listView_Compo"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -50,6 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
-        </ScrollView>
+        </ListView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
