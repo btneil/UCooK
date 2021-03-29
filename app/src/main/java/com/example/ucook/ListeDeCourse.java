@@ -70,7 +70,7 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
             public View getView(final int itemIndex, View itemView, ViewGroup viewGroup) {
                 if (itemView == null) {   // on va creer une case réponse (une ligne du listview ) avec un modele défini dans le fichier
                     // xml main_activity_base_adapter
-                    itemView = LayoutInflater.from(Liste_De_Courses.this).inflate(R.layout.activity_element_liste, null);
+                    itemView = LayoutInflater.from(ListeDeCourse.this).inflate(R.layout.activity_element_liste, null);
                 }
 
                 // On récupere les 3 cases (image + zone identite + zone age de ce modele)
@@ -89,6 +89,7 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
                 // on les insère dans les champs correspondants
                 textTest_bis.setText(Ingredient.Nom);
                 textQtt_bis.setText(Qtt);
+                return itemView;
 
             }
 
