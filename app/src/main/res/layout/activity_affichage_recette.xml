@@ -37,4 +37,12 @@
         android:text="Ajouter au panier"
         tools:layout_editor_absoluteX="112dp"
         tools:layout_editor_absoluteY="600dp" />
+
+    <TextView
+        android:id="@+id/TitreTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="100dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
