@@ -13,12 +13,13 @@ import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
-    Gson gson = new Gson();
 
-    Recette CroqueM = new Recette ("Croque-monsieur", "pas grand chose, cf Neil", 15, 4, "facile", 1,"@drawable/icon2");
-    ListeDeRecettes LivreRecette = new ListeDeRecettes(CroqueM);
+    //Gson gson = new Gson();
 
-    String json = gson.toJson(CroqueM); //on met CroqueM dans le Json
+    //Recette CroqueM = new Recette ("Croque-monsieur", "pas grand chose, cf Neil", 15, 4, "facile", 1,"@drawable/icon2");
+    //ListeDeRecettes LivreRecette = new ListeDeRecettes(CroqueM);
+
+    //String json = gson.toJson(CroqueM); //on met CroqueM dans le Json
     
 
     private Button Menu_btn;

@@ -1,4 +1,74 @@
 <resources>
     <string name="app_name">UCooK</string>
     <string name="titre_rct">CroqueMonsieur</string>
+    <string-array name="titre_liste_recette">
+        <item>Croque Monsieur</item>
+        <item>Salade niçoise</item>
+        <item>Lasagnes</item>
+        <item>Tiramisu</item>
+        <item>Gigot d’agneau, flageolets, haricots verts</item>
+        <item>bimbamboum</item>
+        <item>tralalatsointsoin</item>
+        <item>YIUPIII</item>
+        <item>Croque Monsieur</item>
+        <item>Salade niçoise</item>
+        <item>Lasagnes</item>
+        <item>Tiramisu</item>
+        <item>Gigot d’agneau, flageolets, haricots verts</item>
+        <item>bimbamboum</item>
+        <item>tralalatsointsoin</item>
+        <item>YIUPIII</item>
+        <item>Croque Monsieur</item>
+        <item>Salade niçoise</item>
+        <item>Lasagnes</item>
+        <item>Tiramisu</item>
+        <item>Gigot d’agneau, flageolets, haricots verts</item>
+        <item>bimbamboum</item>
+        <item>tralalatsointsoin</item>
+        <item>YIUPIII</item>
+        <item>Croque Monsieur</item>
+        <item>Salade niçoise</item>
+        <item>Lasagnes</item>
+        <item>Tiramisu</item>
+        <item>Gigot d’agneau, flageolets, haricots verts</item>
+        <item>bimbamboum</item>
+        <item>tralalatsointsoin</item>
+        <item>YIUPIII</item>
+
+    </string-array>
+    <string-array name="description">
+        <item>Miam miam on va se régaler</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>Miam miam on va se régaler</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+        <item>RAS pour le moment</item>
+    </string-array>
+
 </resources>

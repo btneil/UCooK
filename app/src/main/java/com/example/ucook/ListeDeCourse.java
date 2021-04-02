@@ -23,7 +23,36 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
     ArrayList<Composition> Liste_De_Courses;
 
 
-    @Override
+
+
+
+    /*public void MettreDansLePanier(Recette recette) {
+        //while (recette.TabComposition.hasNext());
+        for (int i = 0; i < recette.TabComposition.size(); i++) {
+            Ingredient ingcourant = recette.TabComposition.get(i).Ingredient;
+            int qttcourant = recette.TabComposition.get(i).Quantite;
+            for (int j = 0; j < TabCompo.size(); j++) {
+                if (ingcourant == TabCompo.get(j).Ingredient) {
+                    int qttfinal = qttcourant + TabCompo.get(j).Quantite;
+                    TabCompo.remove(j);
+                    Composition compofinale = new Composition(ingcourant, qttfinal);
+                    TabCompo.add(compofinale);
+
+                } else {
+                    TabCompo.add(recette.TabComposition.get(i));
+
+                }
+            }
+
+
+        }
+
+
+    }*/
+    }
+
+/*
+ @Override
     protected void onCreate(Bundle savedInstanceState) {
         //appelle du constructeur parent et charge du calque associé
         super.onCreate(savedInstanceState);
@@ -70,7 +99,7 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
             public View getView(final int itemIndex, View itemView, ViewGroup viewGroup) {
                 if (itemView == null) {   // on va creer une case réponse (une ligne du listview ) avec un modele défini dans le fichier
                     // xml main_activity_base_adapter
-                    itemView = LayoutInflater.from(ListeDeCourse.this).inflate(R.layout.activity_element_liste, null);
+                    itemView = LayoutInflater.from(ListeDeCourse.this).inflate(R.layout.activity_element_liste_recette, null);
                 }
                 // On récupere les 3 cases (image + zone identite + zone age de ce modele)
                 // on va les remplir par la suite avec les valeurs à affcher pour cette ligne
@@ -97,30 +126,4 @@ public class ListeDeCourse extends AppCompatActivity {  //se renseigner sur cett
         ListView lv_Etudiants  = (ListView)findViewById(R.id.listView_Compo);
         // on l'associe au customAdapter. et voila
         lv_Etudiants.setAdapter(customBaseAdapter);
-
-
-    /*public void MettreDansLePanier(Recette recette) {
-        //while (recette.TabComposition.hasNext());
-        for (int i = 0; i < recette.TabComposition.size(); i++) {
-            Ingredient ingcourant = recette.TabComposition.get(i).Ingredient;
-            int qttcourant = recette.TabComposition.get(i).Quantite;
-            for (int j = 0; j < TabCompo.size(); j++) {
-                if (ingcourant == TabCompo.get(j).Ingredient) {
-                    int qttfinal = qttcourant + TabCompo.get(j).Quantite;
-                    TabCompo.remove(j);
-                    Composition compofinale = new Composition(ingcourant, qttfinal);
-                    TabCompo.add(compofinale);
-
-                } else {
-                    TabCompo.add(recette.TabComposition.get(i));
-
-                }
-            }
-
-
-        }
-
-
-    }*/
-    }
-}
+ */
