@@ -2,6 +2,7 @@ package com.example.ucook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,10 +25,9 @@ public class AffichageRecette extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        image_affichage_recette= findViewById(R.id.image_affichage_recette);
-        titre_affichage_recette = findViewById(R.id.titre_affichage_recette);
+        titre_affichage_recette = findViewById(R.id.titre_affichage_recette); //on recherche les 2 textes à récupérer et l'image à charger pour afficher la recette
         text_description = findViewById(R.id.text_description);
+        image_affichage_recette = findViewById(R.id.image_affichage_recette);
 
         getData(); //ces 2 méthodes font passer les infos d'une activité à l'autre
         setData(); //les 2 méthodes sont crées plus bas
