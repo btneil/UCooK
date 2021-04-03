@@ -12,7 +12,10 @@
         <activity android:name=".PageDeConnexion"></activity>
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".AfficherPanier" />
-        <activity android:name=".AffichageRecette" />
+        <activity android:name=".AffichageRecette"
+            android:parentActivityName=".MenuPrincipal"
+            android:label="Details"
+            />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

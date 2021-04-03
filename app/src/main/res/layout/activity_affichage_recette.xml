@@ -7,11 +7,13 @@
     tools:context=".AffichageRecette">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="580dp"
-        android:layout_height="770dp"
-        tools:layout_editor_absoluteX="-27dp"
-        tools:layout_editor_absoluteY="-34dp"
+        android:id="@+id/image_affichage_recette"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <Button
@@ -31,18 +33,36 @@
         tools:layout_marginRight="10dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ajouter_panier_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
         android:text="Ajouter au panier"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="600dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/TitreTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="100dp" />
+        android:id="@+id/titre_affichage_recette"
+        android:layout_width="40dp"
+        android:layout_height="22dp"
+        android:text="Titre"
+        app:layout_constraintBottom_toTopOf="@+id/text_description"
+        app:layout_constraintEnd_toStartOf="@+id/image_affichage_recette"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/text_description"
+        android:layout_width="360dp"
+        android:layout_height="402dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="@+id/ajouter_panier_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
