@@ -2,11 +2,11 @@
     <string name="app_name">UCooK</string>
     <string name="titre_rct">CroqueMonsieur</string>
     <string-array name="titre_liste_recette">
-        <item>banane plantain</item>
-        <item>daube au carottes</item>
-        <item>galette des rois</item>
-        <item>gateau au chocolat</item>
-        <item>gnocci</item>
+        <item>Banane plantain</item>
+        <item>Daube au carottes</item>
+        <item>Galette des rois</item>
+        <item>Gateau au chocolat</item>
+        <item>Gnocci</item>
         <item>Pommes de terre Hasselback</item>
         <item>Poivrons farçis</item>
         <item>Pokebowl</item>
