@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     //ListeDeRecettes LivreRecette = new ListeDeRecettes(CroqueM);
 
     //String json = gson.toJson(CroqueM); //on met CroqueM dans le Json
-    
+
+
 
     private Button Menu_btn;
     private Button Connexion_btn;

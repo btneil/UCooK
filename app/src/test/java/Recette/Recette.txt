@@ -1,15 +1,7 @@
-*
-Croque-Monsieur
-Mozarella/Avocat/Tomate
-15
-4/5
-Simple
-1
-1. Découpez votre avocat et votre tomate en morceaux. Coupez votre boule de mozzarella en tranches.
-2. Chauffez votre poêle à feu moyen.
+Croque-Monsieur,Simple,15,4/5,2,Mozarella/Avocat/Tomate,1. Découpez votre avocat et votre tomate en morceaux. Coupez votre boule de mozzarella en tranches.
+2. Chauffez votre poêle à feumoyen.
 3. Beurrez légèrement un côté de vos deux tranches de pain.
 4. Placez dans un premier temps une tranche dans la poêle.
 5. Par-dessus, ajoutez l’avocat, la mozzarella et les morceaux de tomate. Versez un peu d’huile d’olive et assaisonnez enfin de sel et de poivre. Refermez le tout avec l'autre tranche
 6. Dès que le premier côté est doré (au bout de 2-3 minutes environ), retournez et laissez cuire 3 minutes de plus.
 2 tranches de pain de mie;1 avocat;1 Mozzarella;1 tomate;Huile d'olive;Beurre;Sel;Poivre/
-%
