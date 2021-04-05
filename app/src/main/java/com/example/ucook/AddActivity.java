@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 public class AddActivity extends AppCompatActivity {
 
+
     EditText titre_rct, diff_rct, ing_rct, tmps_rct, instructions_rct;
     Button add_btn;
 
