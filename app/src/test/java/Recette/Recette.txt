@@ -1,4 +1,6 @@
-Croque-Monsieur,Simple,15,4/5,2,Mozarella/Avocat/Tomate,1. Découpez votre avocat et votre tomate en morceaux. Coupez votre boule de mozzarella en tranches.
+Croque-Monsieur
+Simple
+,15,4/5,2,Mozarella/Avocat/Tomate,1. Découpez votre avocat et votre tomate en morceaux. Coupez votre boule de mozzarella en tranches.
 2. Chauffez votre poêle à feumoyen.
 3. Beurrez légèrement un côté de vos deux tranches de pain.
 4. Placez dans un premier temps une tranche dans la poêle.
