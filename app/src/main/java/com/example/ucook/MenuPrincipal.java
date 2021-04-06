@@ -66,18 +66,18 @@ public class MenuPrincipal extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        /*rct_id = new ArrayList<>();
+        rct_id = new ArrayList<>();
         rct_titre = new ArrayList<>();
         rct_diff = new ArrayList<>();
         rct_ing = new ArrayList<>();
         rct_tmps = new ArrayList<>();
         rct_inst = new ArrayList<>();
 
-        displayData();*/
+        //displayData();
 
     }
 
-    /*void displayData(){
+    void displayData(){
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0){
             Toast.makeText(this, "Pas de Recette", Toast.LENGTH_SHORT).show();
@@ -90,7 +90,8 @@ public class MenuPrincipal extends AppCompatActivity {
                 rct_ing.add(cursor.getString(3));
                 rct_tmps.add(cursor.getString(4));
                 rct_inst.add(cursor.getString(5));
+                System.out.print("Dans la while");
             }
         }
-    }*/
+    }
 }
