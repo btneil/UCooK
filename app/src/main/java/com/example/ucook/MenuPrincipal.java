@@ -22,7 +22,7 @@ public class MenuPrincipal extends AppCompatActivity {
     MyDataBase myDB;
     ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst;
 
-    String s1[], s2[];
+    ArrayList s1, s2;
     int images[] = {R.drawable.banane_plantain,R.drawable.daube_carotte,
                 R.drawable.galette_des_rois,R.drawable.gateau_choco,R.drawable.gnocci,
                 R.drawable.pdt_hasselback,R.drawable.poivron_farci,R.drawable.pokebowl,
@@ -58,14 +58,10 @@ public class MenuPrincipal extends AppCompatActivity {
         myDB = new MyDataBase(MenuPrincipal.this);
 
 
-        s1 = getResources().getStringArray(R.array.titre_liste_recette); //entrer ici les titres des recettes
-        s2 = getResources().getStringArray(R.array.description ); //entrer ici les descriptions des recettes (note: pour l'instant présents dans le fichier STRING dans l'ordre)
+        //s1 = getResources().getStringArray(R.array.titre_liste_recette); //entrer ici les titres des recettes
+        //s2 = getResources().getStringArray(R.array.description ); //entrer ici les descriptions des recettes (note: pour l'instant présents dans le fichier STRING dans l'ordre)
         //s1 = Tab_recette;
         //s2 = Tab_diff;
-
-        MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
-        recyclerView.setAdapter(myAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         rct_id = new ArrayList<>();
         rct_titre = new ArrayList<>();
         rct_diff = new ArrayList<>();
@@ -73,7 +69,15 @@ public class MenuPrincipal extends AppCompatActivity {
         rct_tmps = new ArrayList<>();
         rct_inst = new ArrayList<>();
 
-        //displayData();
+        displayData();
+        s1 = rct_titre;
+        s2 = rct_diff;
+        MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
 
     }
 
