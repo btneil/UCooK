@@ -95,6 +95,7 @@ public class MenuPrincipal extends AppCompatActivity {
                 rct_tmps.add(cursor.getString(4));
                 rct_inst.add(cursor.getString(5));
                 System.out.print("Dans la while");
+
             }
         }
     }
