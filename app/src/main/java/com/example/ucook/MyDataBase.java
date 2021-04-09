@@ -15,6 +15,7 @@ public class MyDataBase extends SQLiteOpenHelper {
     private static final String DATA_BASE_NAME ="Liste_de_recettes_2";
     private static final int DATA_BASE_VERSION =1;
 
+
     private static final String TABLE_NAME = "mon_livre";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "titre_rct";
