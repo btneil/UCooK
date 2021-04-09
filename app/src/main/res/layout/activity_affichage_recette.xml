@@ -8,12 +8,13 @@
 
     <ImageView
         android:id="@+id/image_affichage_recette"
-        android:layout_width="200dp"
-        android:layout_height="250dp"
+        android:layout_width="174dp"
+        android:layout_height="156dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <Button
@@ -29,24 +30,18 @@
 
     <TextView
         android:id="@+id/titre_affichage_recette"
-        android:layout_width="40dp"
-        android:layout_height="22dp"
+        android:layout_width="141dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="1dp"
         android:text="Titre"
         app:layout_constraintBottom_toTopOf="@+id/text_description"
         app:layout_constraintEnd_toStartOf="@+id/image_affichage_recette"
+        app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
 
-    <EditText
-        android:id="@+id/text_description"
-        android:layout_width="360dp"
-        android:layout_height="402dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="@+id/ajouter_panier_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/Retour_Menu_Btn"
@@ -63,6 +58,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="10dp"
         tools:layout_marginRight="10dp"/>
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/text_description"
+        android:layout_width="360dp"
+        android:layout_height="402dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="@+id/ajouter_panier_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_diff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/titre_affichage_recette"
+        app:layout_constraintTop_toBottomOf="@+id/titre_affichage_recette" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

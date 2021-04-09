@@ -20,7 +20,7 @@ public class Recette {
     File recette = new File("Recette/Recette.txt");/*public Recette(String nom, String instructions, int temps, int note, String difficulte, int nbpersonnes, String Image){Nom=nom;Instructions=instructions;Temps=temps;Note=note;Difficulte=difficulte;NbPersonnes=nbpersonnes;}*/
 
     public Recette() {
-        File fichier = new File("C:/Users/quent/OneDrive/Desktop/Recette.txt");
+        /*File fichier = new File("C:/Users/quent/OneDrive/Desktop/Recette.txt");
         if (!fichier.exists()) {
             System.out.println("Le fichier n'existe pas");//test debug
             try {
@@ -50,7 +50,7 @@ public class Recette {
         catch (Exception e) {
             System.out.println("erreur lecture du fichier");
         }
-        System.out.println(Nom + " " + Difficulte);
+        System.out.println(Nom + " " + Difficulte);*/
 
         //openFile();
         //lectureFichier();

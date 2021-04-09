@@ -12,11 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class AffichageRecette extends AppCompatActivity {
 
     ImageView image_affichage_recette;
     TextView titre_affichage_recette;
-    EditText text_description;
+    TextView text_diff;
 
     String data1, data2;
     int images;
@@ -25,15 +27,17 @@ public class AffichageRecette extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_affichage_recette);
+
         titre_affichage_recette = findViewById(R.id.titre_affichage_recette); //on recherche les 2 textes à récupérer et l'image à charger pour afficher la recette
-        text_description = findViewById(R.id.text_description);
+        text_diff = findViewById(R.id.text_diff);
         image_affichage_recette = findViewById(R.id.image_affichage_recette);
 
         getData(); //ces 2 méthodes font passer les infos d'une activité à l'autre
         setData(); //les 2 méthodes sont crées plus bas
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_affichage_recette);
+
 
         this.Retour_Menu_Btn = findViewById(R.id.Retour_Menu_Btn);
         Retour_Menu_Btn.setOnClickListener(new View.OnClickListener() {
@@ -46,13 +50,14 @@ public class AffichageRecette extends AppCompatActivity {
         });
 
 
+
     }
 
     private void getData(){
-        if(getIntent().hasExtra("images") && getIntent().hasExtra("data1") && getIntent().hasExtra("data2")){ // on vérifie que les variables existent
+        if(getIntent().hasExtra("images") && getIntent().hasExtra("rct_titre") && getIntent().hasExtra("rct_diff")){ // on vérifie que les variables existent
 
-            data1 = getIntent().getStringExtra("data1");
-            data2 = getIntent().getStringExtra("data2");
+            data1 = getIntent().getStringExtra("rct_titre");
+            data2 = getIntent().getStringExtra("rct_diff");
             images = getIntent().getIntExtra("images",1);
         }
         else{
@@ -61,7 +66,7 @@ public class AffichageRecette extends AppCompatActivity {
     }
     private void setData(){
         titre_affichage_recette.setText(data1);
-        text_description.setText(data2);
+        text_diff.setText(data2);
         image_affichage_recette.setImageResource(images);
     }
 }

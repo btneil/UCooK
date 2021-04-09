@@ -1,5 +1,6 @@
 package com.example.ucook;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -19,9 +20,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList rct_titre, rct_diff;
     int images[];
     Context context;
+    Activity activity;
 
-    public MyAdapter(Context ct, ArrayList rct_titre, ArrayList rct_diff, int img[]){
+    MyAdapter(Activity activity,Context ct, ArrayList rct_titre, ArrayList rct_diff, int img[]){
         context = ct;
+        this.activity = activity;
         this.rct_titre = rct_titre;
         this.rct_diff = rct_diff;
         images = img;
@@ -40,17 +43,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.rct_titre_txt.setText(String.valueOf(rct_titre.get(position)));
         holder.rct_diff_txt.setText(String.valueOf(rct_diff.get(position)));
         holder.myImage.setImageResource(images[position]);
-
-        /*holder.layout_affichage_recette.setOnClickListener(new View.OnClickListener() {
+        holder.layout_affichage_recette.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AffichageRecette.class);
-                intent.putExtra("data1", data1[position]);
-                intent.putExtra("data2", data2[position]);
+                intent.putExtra("rct_titre", String.valueOf(rct_titre.get(position)));
+                intent.putExtra("rct_diff", String.valueOf(rct_diff.get(position)));
                 intent.putExtra("images", images[position]);
-                context.startActivity(intent);
+                activity.startActivityForResult(intent,1);
             }
-        });*/
+        });
 
     }
 

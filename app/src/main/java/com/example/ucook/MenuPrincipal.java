@@ -1,5 +1,6 @@
 package com.example.ucook;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,9 +36,9 @@ public class MenuPrincipal extends AppCompatActivity {
                 R.drawable.carotte,R.drawable.lasagne,R.drawable.carotte,
                 R.drawable.lasagne,R.drawable.carotte,R.drawable.lasagne};
 
-    Recette CroqueM=new Recette();
-    String [] Tab_recette = {CroqueM.Nom};
-    String[] Tab_diff = {CroqueM.Difficulte};
+    //Recette CroqueM=new Recette();
+    //String [] Tab_recette = {CroqueM.Nom};
+    //String[] Tab_diff = {CroqueM.Difficulte};
 
 
     @Override
@@ -72,13 +73,17 @@ public class MenuPrincipal extends AppCompatActivity {
         displayData();
         s1 = rct_titre;
         s2 = rct_diff;
-        MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
+        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,s1,s2,images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-
-
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
     }
 
     void displayData(){

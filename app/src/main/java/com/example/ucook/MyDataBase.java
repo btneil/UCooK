@@ -15,7 +15,6 @@ public class MyDataBase extends SQLiteOpenHelper {
     private static final String DATA_BASE_NAME ="Liste_de_recettes_2";
     private static final int DATA_BASE_VERSION =1;
 
-
     private static final String TABLE_NAME = "mon_livre";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "titre_rct";
@@ -79,5 +78,24 @@ public class MyDataBase extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor; //cursor contient donc mtn toute la bdd
+    }
+
+    void updateData(String rows_id, String titre, String diff, String Ing, int tmps, String instructions){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, titre);
+        cv.put(COLUMN_DIFF, diff);
+        cv.put(COLUMN_ING, Ing);
+        cv.put(COLUMN_TEMPS, tmps);
+        cv.put(COLUMN_INST, instructions);
+
+        long result = db.update(TABLE_NAME, cv,"_id=?", new String[]{rows_id});
+        if(result == -1){
+            Toast.makeText(context, "ECHEC DE LA MISE A JOUR", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "SUCCES DE LA MISE A JOUR", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
