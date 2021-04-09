@@ -22,7 +22,9 @@ public class MyDataBase extends SQLiteOpenHelper {
     private static final String COLUMN_DIFF = "difficulte";
     private static final String COLUMN_ING = "ingredients";
     private static final String COLUMN_TEMPS = "temps";
+    private static final String COLUMN_IMG = "images";
     private static final String COLUMN_INST = "instructions";
+
 
     public MyDataBase(@Nullable Context context) {
         super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
@@ -37,6 +39,7 @@ public class MyDataBase extends SQLiteOpenHelper {
                         COLUMN_DIFF + " TEXT, " +
                         COLUMN_ING + " TEXT, " +
                         COLUMN_TEMPS + " int, " +
+                        COLUMN_IMG+ " BLOB, "+
                         COLUMN_INST + " TEXT);"; //Declaration du SQL dans query, ATTENTION AUX ESPACES ! ! !
 
         db.execSQL(query);
