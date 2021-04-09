@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 public class MyDataBase extends SQLiteOpenHelper {
 
     private Context context;
-    private static final String DATA_BASE_NAME ="Liste_de_recettes";
+    private static final String DATA_BASE_NAME ="Liste_de_recettes_2";
     private static final int DATA_BASE_VERSION =1;
 
     private static final String TABLE_NAME = "mon_livre";
