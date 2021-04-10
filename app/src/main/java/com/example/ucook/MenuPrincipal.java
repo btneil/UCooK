@@ -101,6 +101,10 @@ public class MenuPrincipal extends AppCompatActivity {
                 rct_inst.add(cursor.getString(5));
                 System.out.print("Dans la while");
 
+                //Recette rct_id = new Recette(); // idéalement, il faudrait ajouter dans une liste de recette (objet)
+                // des recettes crééent à partir des parametres ci-dessus. On pourrait alors y accéder plus facilement, et l'affichage serait plus simple
+                //sinon on peut tjs essayer de "cacher" l'info qqpart dans l'apercu de la recette pour les récupérer dans son affichage
+
             }
         }
     }
