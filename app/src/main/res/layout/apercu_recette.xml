@@ -39,11 +39,13 @@
 
             <ImageView
                 android:id="@+id/image_recette"
-                android:layout_width="78dp"
-                android:layout_height="82dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/carotte"
-                tools:layout_editor_absoluteY="0dp" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/carotte" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
