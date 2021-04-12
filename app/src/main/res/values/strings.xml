@@ -1,5 +1,26 @@
 <resources>
+
+    <!-- Texte de l'application -->
     <string name="app_name">UCooK</string>
+    <!-- Page d'accueil -->
+    <string name="Agenda">Agenda</string>
+    <string name="Livre_recette">Livre de recette</string>
+    <!-- Page Livre de recette/recette/Ajout recette -->
+    <string name="Nom">Nom de recette:</string>
+    <string name="Ingrédient">Ingrédients:</string>
+    <string name="Tps">Temps de préparation:</string>
+    <string name="Bt_confirmer">Confirmer</string>
+    <string name="Description">Description:</string>
+    <string name="Photo">Ajout <d>d'</d>une photo</string>
+    <!-- Panier de course/Ajout ingrédient/ingrédient -->
+    <string name="Nom_ingrédient">Nom:</string>
+    <string name="Quantité">Qte:</string>
+    <string name="bt_Panier">Retirer du panier</string>
+
+
+
+
+
     <string name="titre_rct">CroqueMonsieur</string>
     <string-array name="titre_liste_recette">
         <item>Banane plantain</item>
