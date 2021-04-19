@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.gson.Gson;
 
@@ -24,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button Menu_btn;
-    private Button Connexion_btn;
-    private Button Panier_btn;
+    private ImageButton shoppingcart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         this.Menu_btn = findViewById(R.id.Menu_btn);
-        this.Connexion_btn =  findViewById(R.id.Connexion_btn);
-        this.Panier_btn = findViewById(R.id.Panier_btn);
+        this.shoppingcart = findViewById(R.id.shoppingcart);
 
         Menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,15 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        Connexion_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Aff_PageDeConnexion = new Intent(getApplicationContext(), PageDeConnexion.class);
-                startActivity(Aff_PageDeConnexion);
-                finish();
-            }
-        });
-        Panier_btn.setOnClickListener(new View.OnClickListener() {
+
+        shoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Intent Aff_Panier = new Intent(getApplicationContext(), AfficherPanier.class);

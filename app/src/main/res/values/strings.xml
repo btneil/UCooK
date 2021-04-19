@@ -11,7 +11,7 @@
     <string name="Tps">Temps de préparation:</string>
     <string name="Bt_confirmer">Confirmer</string>
     <string name="Description">Description:</string>
-    <string name="Photo">Ajout <d>d'</d>une photo</string>
+    <string name="Photo">Ajout <d>d</d>une photo</string>
     <!-- Panier de course/Ajout ingrédient/ingrédient -->
     <string name="Nom_ingrédient">Nom:</string>
     <string name="Quantité">Qte:</string>
