@@ -40,13 +40,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="237dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="262dp"
+        android:layout_height="83dp"
+        android:progressDrawable="@drawable/carottes_rating_barre"
+        app:layout_constraintBottom_toTopOf="@+id/text_description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/image_affichage_recette"
+        app:layout_constraintVertical_bias="0.544" />
 
     <MultiAutoCompleteTextView
         android:id="@+id/text_description"
@@ -56,6 +56,22 @@
         android:layout_marginTop="216dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/home_btn"
+        android:layout_width="105dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:outlineSpotShadowColor="@color/black"
+        android:scaleType="centerInside"
+        app:backgroundTint="@color/couleur_button2"
+        app:fabCustomSize="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_description"
+        app:srcCompat="@drawable/ic_home" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

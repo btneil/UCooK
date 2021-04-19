@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.w3c.dom.Text;
 
 public class AffichageRecette extends AppCompatActivity {
@@ -23,7 +25,7 @@ public class AffichageRecette extends AppCompatActivity {
     String data1, data2;
     int images;
 
-    private Button Retour_Menu_Btn;
+    private FloatingActionButton home_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class AffichageRecette extends AppCompatActivity {
         setContentView(R.layout.activity_affichage_recette);
 
         titre_affichage_recette = findViewById(R.id.titre_affichage_recette); //on recherche les 2 textes à récupérer et l'image à charger pour afficher la recette
-        text_diff = findViewById(R.id.text_diff);
+        //text_diff = findViewById(R.id.text_diff); à changer ou pas pour les etoiles
         image_affichage_recette = findViewById(R.id.image_affichage_recette);
 
         getData(); //ces 2 méthodes font passer les infos d'une activité à l'autre
@@ -39,8 +41,8 @@ public class AffichageRecette extends AppCompatActivity {
 
 
 
-        this.Retour_Menu_Btn = findViewById(R.id.Retour_Menu_Btn);
-        Retour_Menu_Btn.setOnClickListener(new View.OnClickListener() {
+        this.home_btn = findViewById(R.id.home_btn);
+        home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Retour_Menu = new Intent(getApplicationContext(), MainActivity.class);
@@ -66,7 +68,7 @@ public class AffichageRecette extends AppCompatActivity {
     }
     private void setData(){
         titre_affichage_recette.setText(data1);
-        text_diff.setText(data2);
+        //text_diff.setText(data2); à changer aussi pour étoiles
         image_affichage_recette.setImageResource(images);
     }
 }

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class ListeDeRecettes {
     ArrayList<Recette> Liste = new ArrayList<Recette>();
 
-    public ListeDeRecettes(Recette rct){
-        AjouterRecetteDansListe(rct);
+    public ListeDeRecettes(){
+
     }
 
     public void AjouterRecetteDansListe(Recette rct){

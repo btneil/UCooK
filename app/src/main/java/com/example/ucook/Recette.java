@@ -54,6 +54,11 @@ public class Recette {
 
         //openFile();
         //lectureFichier();
+
+        /*Nom=nom;
+        Instructions=instructions;
+        Difficulte=difficulte;*/
+
     }
 
     private Scanner rec;

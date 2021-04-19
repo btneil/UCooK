@@ -57,11 +57,11 @@
         android:layout_width="364dp"
         android:layout_height="89dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="420dp"
         android:layout_weight="1"
         android:backgroundTint="@color/couleur_button1"
         android:text="Liste de Recettes"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -73,6 +73,8 @@
         android:layout_height="105dp"
         android:backgroundTint="@color/couleur_button2"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/plus"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_cart">
 
@@ -82,9 +84,10 @@
         android:id="@+id/plus"
         android:layout_width="111dp"
         android:layout_height="105dp"
-        android:layout_marginStart="300dp"
         android:backgroundTint="@color/couleur_button2"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_plus">
 
