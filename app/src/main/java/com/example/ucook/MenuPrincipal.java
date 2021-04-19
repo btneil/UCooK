@@ -88,8 +88,8 @@ public class MenuPrincipal extends AppCompatActivity {
         while(j!=Livre_rct.Liste.size()){
             System.out.println("\n" + Livre_rct.Liste.get(j).Nom);//lignes de test
             j++;
-        }
-
+        }//La liste de recette est donc bien remplie ! ! !
+//maintenant il faudra remplacer les remplissages en passant par la liste de recette
         s1 = rct_titre;
         s2 = rct_diff;
         MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,s1,s2,images);
@@ -137,7 +137,7 @@ public class MenuPrincipal extends AppCompatActivity {
             rct.Instructions = rct_inst.get(i);
             Livre_rct.AjouterRecetteDansListe(rct);
             i++;
-        }//La liste de recette est donc bien remplie ! ! !
+        }
 
     }
 }
