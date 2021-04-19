@@ -4,79 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AffichageRecette">
+    android:background="@color/couleur_fond">
 
     <ImageView
         android:id="@+id/image_affichage_recette"
-        android:layout_width="174dp"
-        android:layout_height="156dp"
+        android:layout_width="136dp"
+        android:layout_height="125dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <Button
+    <ImageButton
         android:id="@+id/ajouter_panier_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
+        android:layout_width="115dp"
+        android:layout_height="104dp"
         android:text="Ajouter au panier"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:backgroundTint="@color/couleur_button2"
+        app:srcCompat="@drawable/ic_cart2"
+        />
 
     <TextView
         android:id="@+id/titre_affichage_recette"
-        android:layout_width="141dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="1dp"
-        android:text="Titre"
-        app:layout_constraintBottom_toTopOf="@+id/text_description"
-        app:layout_constraintEnd_toStartOf="@+id/image_affichage_recette"
-        app:layout_constraintHorizontal_bias="0.32"
+        android:layout_width="325dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="40dp"
+        android:text="Recette"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
-
-
-
-    <Button
-        android:id="@+id/Retour_Menu_Btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Retour"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="1dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="10dp"
-        tools:layout_marginRight="10dp"/>
+        android:layout_width="237dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <MultiAutoCompleteTextView
         android:id="@+id/text_description"
-        android:layout_width="360dp"
-        android:layout_height="402dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="@+id/ajouter_panier_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/text_diff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/titre_affichage_recette"
-        app:layout_constraintTop_toBottomOf="@+id/titre_affichage_recette" />
+        android:layout_width="351dp"
+        android:layout_height="394dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="216dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

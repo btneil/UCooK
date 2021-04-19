@@ -69,8 +69,8 @@
 
     <ImageButton
         android:id="@+id/shoppingcart"
-        android:layout_width="80dp"
-        android:layout_height="76dp"
+        android:layout_width="111dp"
+        android:layout_height="105dp"
         android:backgroundTint="@color/couleur_button2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,9 +80,9 @@
 
     <ImageButton
         android:id="@+id/plus"
-        android:layout_width="80dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="336dp"
+        android:layout_width="111dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="300dp"
         android:backgroundTint="@color/couleur_button2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
