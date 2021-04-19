@@ -11,7 +11,6 @@
         android:theme="@style/Theme.UCooK">
         <activity android:name=".afficher_panier"></activity>
         <activity android:name=".AddActivity" />
-        <activity android:name=".PageDeConnexion" />
         <activity android:name=".MenuPrincipal" />
         <activity
             android:name=".AffichageRecette"
