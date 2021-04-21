@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         shoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent Aff_Panier = new Intent(getApplicationContext(), AfficherPanier.class);
-    //            startActivity(Aff_Panier);
+                Intent Aff_Panier = new Intent(getApplicationContext(), AfficherPanier.class);
+                startActivity(Aff_Panier);
                 finish();
             }
         });

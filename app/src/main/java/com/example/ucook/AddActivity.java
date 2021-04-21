@@ -19,9 +19,9 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
 
         titre_rct = findViewById(R.id.titre_rct);
-        diff_rct = findViewById(R.id.diff_rct);
+        //diff_rct = findViewById(R.id.diff_rct);
         ing_rct = findViewById(R.id.ing_rct);
-        tmps_rct = findViewById(R.id.tmps_rct);
+        //tmps_rct = findViewById(R.id.tmps_rct);
         instructions_rct = findViewById(R.id.description);
         add_btn = findViewById(R.id.add_btn);
         add_btn.setOnClickListener(new View.OnClickListener() {
