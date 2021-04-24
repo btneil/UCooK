@@ -73,7 +73,7 @@
         android:layout_height="105dp"
         android:backgroundTint="@color/couleur_button2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/plus"
+        app:layout_constraintEnd_toEndOf="@+id/Ajouter_rct_btn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_cart">
@@ -81,7 +81,7 @@
     </ImageButton>
 
     <ImageButton
-        android:id="@+id/plus"
+        android:id="@+id/Ajouter_rct_btn"
         android:layout_width="111dp"
         android:layout_height="105dp"
         android:backgroundTint="@color/couleur_button2"

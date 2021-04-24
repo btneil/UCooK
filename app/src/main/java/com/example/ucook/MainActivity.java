@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button Menu_btn;
     private ImageButton shoppingcart;
+    private ImageButton Ajouter_rct_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.Menu_btn = findViewById(R.id.Menu_btn);
         this.shoppingcart = findViewById(R.id.shoppingcart);
+        this.Ajouter_rct_btn = findViewById(R.id.Ajouter_rct_btn);
 
         Menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent Aff_Panier = new Intent(getApplicationContext(), AfficherPanier.class);
                 startActivity(Aff_Panier);
                 finish();
+            }
+        });
+
+        Ajouter_rct_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
             }
         });
 

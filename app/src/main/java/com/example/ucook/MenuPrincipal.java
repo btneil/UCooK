@@ -20,7 +20,6 @@ public class MenuPrincipal extends AppCompatActivity {
     private FloatingActionButton home_btn;
 
     RecyclerView recyclerView;
-    FloatingActionButton Ajouter_rct_btn;
 
     MyDataBase myDB;
     ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst;
@@ -58,14 +57,6 @@ public class MenuPrincipal extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerView);
-        Ajouter_rct_btn = findViewById(R.id.Ajouter_rct_btn);
-        Ajouter_rct_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipal.this, AddActivity.class);
-                startActivity(intent);
-            }
-        });
 
         myDB = new MyDataBase(MenuPrincipal.this);
 
@@ -88,11 +79,12 @@ public class MenuPrincipal extends AppCompatActivity {
         while(j!=Livre_rct.Liste.size()){
             System.out.println("\n" + Livre_rct.Liste.get(j).Nom);//lignes de test
             j++;
+            //s1.add(Livre_rct.Liste.get(j).Nom);//on récup tous les nom de recette et on les ajoute dans s1
         }//La liste de recette est donc bien remplie ! ! !
 //maintenant il faudra remplacer les remplissages en passant par la liste de recette
-        s1 = rct_titre;
+        //s1 = rct_titre;
         s2 = rct_diff;
-        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,s1,s2,images);
+        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,Livre_rct,images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
