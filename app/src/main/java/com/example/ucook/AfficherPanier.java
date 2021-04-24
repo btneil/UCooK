@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -12,6 +16,7 @@ public class AfficherPanier extends AppCompatActivity {
 
     RecyclerView recyclerView_panier;
     ArrayList Nom_ing,Qte;
+    private FloatingActionButton home_btn_panier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +35,18 @@ public class AfficherPanier extends AppCompatActivity {
         MyAdapter_panier myAdapter = new MyAdapter_panier(AfficherPanier.this,this,Nom_ing,Qte);
         recyclerView_panier.setAdapter(myAdapter);
         recyclerView_panier.setLayoutManager(new LinearLayoutManager(this));
+
+        this.home_btn_panier=findViewById(R.id.home_btn_panier);
+
+        home_btn_panier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Retour_menu = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(Retour_menu);
+                finish();
+            }
+        });
+
+
     }
 }

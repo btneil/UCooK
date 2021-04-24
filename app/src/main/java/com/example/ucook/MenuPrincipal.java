@@ -22,7 +22,7 @@ public class MenuPrincipal extends AppCompatActivity {
     RecyclerView recyclerView;
 
     MyDataBase myDB;
-    ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst;
+    ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst, rct_nb_personnes, rct_image;
     ListeDeRecettes Livre_rct = new ListeDeRecettes();
 
     ArrayList s1, s2;
@@ -71,6 +71,8 @@ public class MenuPrincipal extends AppCompatActivity {
         rct_ing = new ArrayList<>();
         rct_tmps = new ArrayList<>();
         rct_inst = new ArrayList<>();
+        rct_nb_personnes = new ArrayList<>();
+        rct_image = new ArrayList<>();
 
         displayData();
 
@@ -110,6 +112,8 @@ public class MenuPrincipal extends AppCompatActivity {
                 rct_ing.add(cursor.getString(3));
                 rct_tmps.add(cursor.getString(4));
                 rct_inst.add(cursor.getString(5));
+                rct_nb_personnes.add(cursor.getString(6)); // colonne à rajouter dans bdd
+                rct_image.add(cursor.getString(7)); //colonne à rajouter dans bdd
                 System.out.print("Dans la while");
 
 
@@ -123,10 +127,11 @@ public class MenuPrincipal extends AppCompatActivity {
     void Remplir_Liste_Recette(){
         int i = 0;
         while(i!=rct_id.size()){
-            Recette rct = new Recette();
-            rct.Nom = rct_titre.get(i);
-            rct.Difficulte = rct_diff.get(i);
-            rct.Instructions = rct_inst.get(i);
+            Recette rct = new Recette(rct_titre.get(i),rct_inst.get(i),rct_diff.get(i),
+                    Integer.parseInt(rct_tmps.get(i)),Integer.parseInt(rct_nb_personnes.get(i)),Integer.parseInt(rct_image.get(i))); //String to int
+            //rct.Nom = rct_titre.get(i);
+            //rct.Difficulte = rct_diff.get(i);
+            //rct.Instructions = rct_inst.get(i);
             Livre_rct.AjouterRecetteDansListe(rct);
             i++;
         }

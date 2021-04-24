@@ -23,16 +23,13 @@ public class AddActivity extends AppCompatActivity {
         ing_rct = findViewById(R.id.ing_rct);
         tmps_rct = findViewById(R.id.tmps_rct);
         instructions_rct = findViewById(R.id.instructions);
+        Recette Rct = new Recette(titre_rct.toString(),instructions_rct.toString(),diff_rct.toString(),10,4,R.drawable.pokebowl); //changer 10 et 4
         add_btn = findViewById(R.id.add_btn);
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyDataBase myDB = new MyDataBase(AddActivity.this);
-                myDB.ajouter_rct(titre_rct.getText().toString().trim(),
-                        diff_rct.getText().toString().trim(),
-                        ing_rct.getText().toString().trim(),
-                        Integer.valueOf(tmps_rct.getText().toString().trim()),
-                        instructions_rct.getText().toString().trim()); //on converti chaque champs pour qu'ils correspondent à ceux attendus
+                myDB.ajouter_rct(Rct); //on converti chaque champs pour qu'ils correspondent à ceux attendus
             }
         });
     }

@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UCooK">
         <activity android:name=".AfficherPanier"></activity>
-        <activity android:name=".afficher_panier" />
         <activity android:name=".AddActivity" />
         <activity android:name=".MenuPrincipal" />
         <activity
