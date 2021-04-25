@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Recette {
-    String Nom, Instructions, Difficulte;
-    int Temps, Note, NbPersonnes, Image;
+    String Nom, Instructions, Difficulte,Temps;
+    int Note, NbPersonnes, Image;
     ArrayList<Composition> TabComposition = new ArrayList<Composition>();
     File recette = new File("Recette/Recette.txt");/*public Recette(String nom, String instructions, int temps, int note, String difficulte, int nbpersonnes, String Image){Nom=nom;Instructions=instructions;Temps=temps;Note=note;Difficulte=difficulte;NbPersonnes=nbpersonnes;}*/
 
-    public Recette(String nom, String inst, String diff, int tpms, int nbp,int img) {
+    public Recette(String nom, String inst, String diff, String tpms, int nbp,int img) {
         Nom = nom;
         Instructions = inst;
         Difficulte = diff;

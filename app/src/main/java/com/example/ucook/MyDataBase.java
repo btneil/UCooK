@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 public class MyDataBase extends SQLiteOpenHelper {
 
     private Context context;
-    private static final String DATA_BASE_NAME ="Liste_de_recettes_3";
-    private static final int DATA_BASE_VERSION =1;
+    private static final String DATA_BASE_NAME ="Liste_de_recettes";
+    private static final int DATA_BASE_VERSION =2;
 
     private static final String TABLE_NAME = "mon_livre";
     private static final String COLUMN_ID = "_id";
@@ -40,7 +40,6 @@ public class MyDataBase extends SQLiteOpenHelper {
                         COLUMN_ING + " TEXT, " +
                         COLUMN_TEMPS + " int, " +
                         COLUMN_IMG+ " int, "+
-                        COLUMN_NB_PERSONNES+ "int, "+
                         COLUMN_INST + " TEXT);"; //Declaration du SQL dans query, ATTENTION AUX ESPACES ! ! ! + BLOB comme type pour image?
 
         db.execSQL(query);
@@ -58,11 +57,11 @@ public class MyDataBase extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues(); //ce qui permet d'écrire dans la bdd
 
         cv.put(COLUMN_TITLE, Rct.Nom);
+        System.out.println("La nom de la recette ajoutée est : " + Rct.Nom);
         cv.put(COLUMN_DIFF, Rct.Difficulte);
         cv.put(COLUMN_ING, Rct.Instructions); // trouver un moyen d'y mettre une liste d'ingrédients
         cv.put(COLUMN_TEMPS, Rct.Temps);
         cv.put(COLUMN_IMG, Rct.Image);
-        cv.put(COLUMN_NB_PERSONNES, Rct.NbPersonnes);
         cv.put(COLUMN_INST, Rct.Instructions);
         long result = db.insert(TABLE_NAME,null, cv);
         if (result==-1){ // si l'appli échoue
@@ -91,7 +90,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         cv.put(COLUMN_DIFF, diff);
         cv.put(COLUMN_ING, Ing);
         cv.put(COLUMN_TEMPS, tmps);
-        cv.put(COLUMN_INST, instructions);// à compléter avec les 2 nouvelles colonnes
+        cv.put(COLUMN_INST, instructions);// à compléter avec nouvelles colonnes
 
         long result = db.update(TABLE_NAME, cv,"_id=?", new String[]{rows_id});
         if(result == -1){

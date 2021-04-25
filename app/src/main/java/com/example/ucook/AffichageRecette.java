@@ -21,8 +21,9 @@ public class AffichageRecette extends AppCompatActivity {
     ImageView image_affichage_recette;
     TextView titre_affichage_recette;
     TextView text_diff;
+    TextView instructions_txt;
 
-    String data1, data2;
+    String data1, data2, instructions;
     int images;
 
     private FloatingActionButton home_btn;
@@ -33,8 +34,9 @@ public class AffichageRecette extends AppCompatActivity {
         setContentView(R.layout.activity_affichage_recette);
 
         titre_affichage_recette = findViewById(R.id.titre_affichage_recette); //on recherche les 2 textes à récupérer et l'image à charger pour afficher la recette
-        //text_diff = findViewById(R.id.text_diff); à changer ou pas pour les etoiles
+        text_diff = findViewById(R.id.rct_diff);
         image_affichage_recette = findViewById(R.id.image_affichage_recette);
+        instructions_txt = findViewById(R.id.Inst_rct);
 
         getData(); //ces 2 méthodes font passer les infos d'une activité à l'autre
         setData(); //les 2 méthodes sont crées plus bas
@@ -61,6 +63,7 @@ public class AffichageRecette extends AppCompatActivity {
             data1 = getIntent().getStringExtra("rct_titre");
             data2 = getIntent().getStringExtra("rct_diff");
             images = getIntent().getIntExtra("images",1);
+            instructions = getIntent().getStringExtra("instructions");
         }
         else{
             Toast.makeText(this,"No data.", Toast.LENGTH_SHORT).show();
@@ -68,7 +71,9 @@ public class AffichageRecette extends AppCompatActivity {
     }
     private void setData(){
         titre_affichage_recette.setText(data1);
-        //text_diff.setText(data2); à changer aussi pour étoiles
+        text_diff.setText(data2);
         image_affichage_recette.setImageResource(images);
+        instructions_txt.setText(instructions);
+
     }
 }

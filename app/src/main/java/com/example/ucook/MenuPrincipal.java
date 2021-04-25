@@ -71,7 +71,6 @@ public class MenuPrincipal extends AppCompatActivity {
         rct_ing = new ArrayList<>();
         rct_tmps = new ArrayList<>();
         rct_inst = new ArrayList<>();
-        rct_nb_personnes = new ArrayList<>();
         rct_image = new ArrayList<>();
 
         displayData();
@@ -86,7 +85,7 @@ public class MenuPrincipal extends AppCompatActivity {
 //maintenant il faudra remplacer les remplissages en passant par la liste de recette
         //s1 = rct_titre;
         s2 = rct_diff;
-        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,Livre_rct,images);
+        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,Livre_rct);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -111,9 +110,8 @@ public class MenuPrincipal extends AppCompatActivity {
                 rct_diff.add(cursor.getString(2));
                 rct_ing.add(cursor.getString(3));
                 rct_tmps.add(cursor.getString(4));
-                rct_inst.add(cursor.getString(5));
-                rct_nb_personnes.add(cursor.getString(6)); // colonne à rajouter dans bdd
-                rct_image.add(cursor.getString(7)); //colonne à rajouter dans bdd
+                rct_inst.add(cursor.getString(6)); // /!\ colonne 6 pas 5 (ordre colonne bdd) /!\
+                rct_image.add(cursor.getString(5)); //colonne à rajouter dans bdd
                 System.out.print("Dans la while");
 
 
@@ -128,10 +126,8 @@ public class MenuPrincipal extends AppCompatActivity {
         int i = 0;
         while(i!=rct_id.size()){
             Recette rct = new Recette(rct_titre.get(i),rct_inst.get(i),rct_diff.get(i),
-                    Integer.parseInt(rct_tmps.get(i)),Integer.parseInt(rct_nb_personnes.get(i)),Integer.parseInt(rct_image.get(i))); //String to int
-            //rct.Nom = rct_titre.get(i);
-            //rct.Difficulte = rct_diff.get(i);
-            //rct.Instructions = rct_inst.get(i);
+                    rct_tmps.get(i),1,Integer.parseInt(rct_image.get(i))); //String to int
+
             Livre_rct.AjouterRecetteDansListe(rct);
             i++;
         }

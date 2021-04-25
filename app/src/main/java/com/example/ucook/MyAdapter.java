@@ -19,22 +19,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     ArrayList<String> rct_titre = new ArrayList<String>();
     ArrayList<String> rct_diff = new ArrayList<String>();
-    ListeDeRecettes Livre_rct;
-    int images[];
+    ArrayList<Integer> images = new ArrayList<Integer>();
+    ArrayList<String> rct_inst = new ArrayList<String>();
     Context context;
     Activity activity;
 
-    MyAdapter(Activity activity,Context ct, ListeDeRecettes Livre_rct, int img[]){ //changement! plus de liste s1 et s2 mais uns liste de recette en entrée
+    MyAdapter(Activity activity,Context ct, ListeDeRecettes Livre_rct){ //changement! plus de liste s1 et s2 mais uns liste de recette en entrée
         context = ct;
         this.activity = activity;
         int j=0;
         while(j!=Livre_rct.Liste.size()){
             this.rct_titre.add(Livre_rct.Liste.get(j).Nom);
             this.rct_diff.add(Livre_rct.Liste.get(j).Difficulte);
+            this.images.add(Livre_rct.Liste.get(j).Image);
+            this.rct_inst.add(Livre_rct.Liste.get(j).Instructions);
             j++;
         }
-
-        images = img;
     }
 
     @NonNull
@@ -49,14 +49,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.rct_titre_txt.setText(String.valueOf(rct_titre.get(position)));
         holder.rct_diff_txt.setText(String.valueOf(rct_diff.get(position)));
-        holder.myImage.setImageResource(images[position]);
+        holder.myImage.setImageResource(images.get(position));
         holder.layout_affichage_recette.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AffichageRecette.class);
                 intent.putExtra("rct_titre", String.valueOf(rct_titre.get(position)));
                 intent.putExtra("rct_diff", String.valueOf(rct_diff.get(position)));
-                intent.putExtra("images", images[position]);
+                intent.putExtra("images", Integer.valueOf(images.get(position)));
+                intent.putExtra("instructions", String.valueOf(rct_inst.get(position)));
                 activity.startActivityForResult(intent,1);
             }
         });

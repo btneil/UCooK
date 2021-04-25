@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class AddActivity extends AppCompatActivity {
 
 
-    EditText titre_rct, diff_rct, ing_rct, tmps_rct, instructions_rct;
+    EditText titre_rct, diff_rct, ing_rct, tmps_rct, instructions_rct, photo_rct;
     Button add_btn;
 
     @Override
@@ -23,7 +23,9 @@ public class AddActivity extends AppCompatActivity {
         ing_rct = findViewById(R.id.ing_rct);
         tmps_rct = findViewById(R.id.tmps_rct);
         instructions_rct = findViewById(R.id.instructions);
-        Recette Rct = new Recette(titre_rct.toString(),instructions_rct.toString(),diff_rct.toString(),10,4,R.drawable.pokebowl); //changer 10 et 4
+        photo_rct = findViewById(R.id.photo_rct);
+        Recette Rct = new Recette(titre_rct.getText().toString(),instructions_rct.getText().toString(),diff_rct.getText().toString(),
+                tmps_rct.getText().toString(),1,R.drawable.carotte); //changer 10 et 4
         add_btn = findViewById(R.id.add_btn);
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
