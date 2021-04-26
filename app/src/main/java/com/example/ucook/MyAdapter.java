@@ -31,6 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         int j=0;
         while(j!=Livre_rct.Liste.size()){
             this.rct_titre.add(Livre_rct.Liste.get(j).Nom);
+            System.out.println(rct_titre);
             this.rct_diff.add(Livre_rct.Liste.get(j).Difficulte);
             this.images.add(Livre_rct.Liste.get(j).Image);
             this.rct_inst.add(Livre_rct.Liste.get(j).Instructions);
@@ -40,10 +41,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             String compo = "";
             String unite="";
             String multipl = "";
+            String test;
 
 
             while (i!=Livre_rct.Liste.get(j).TabComposition.size()){ //On crée ici le texte des ingrédients
-                String test = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
+                test = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
 
                 if(test.equals("liquide")){
                     unite="mL";

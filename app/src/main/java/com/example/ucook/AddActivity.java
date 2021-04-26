@@ -28,22 +28,25 @@ public class AddActivity extends AppCompatActivity {
         tmps_rct = findViewById(R.id.tmps_rct);
         instructions_rct = findViewById(R.id.instructions);
         photo_rct = findViewById(R.id.photo_rct);
-        int i = 0;
-        text_ing = String.valueOf(ing_rct.getText()).trim().toLowerCase().replace(", ",",").split(",");//on récup le texte des ingrédients et on le formate pour qu'il n'y ai pas de pb d'espaces
-                                                                                            // ni de majuscule. Enfin on le divise en tableau à chaque ","
-
-        while(i!=text_ing.length){//on va essayer de remplir la liste d'ingredient ici à l'aide du text récupéré (idée: séparation par des "," et couple ing/type/qtt)
-            Tab_compo_ign.add(new Composition(new Ingredient(text_ing[i].split("/")[0],text_ing[i].split("/")[1]),//ici on crée l'ingredient avec les 2 premieres cases
-                    Integer.parseInt(text_ing[i].split("/")[2]))); //ici,  quantité de l'ingrédient
-            i++;
-        }//si tout s'est bien passé, Tab_compo_ign est maintenant rempli de compo (ingredient+quantité)
 
         Recette Rct = new Recette(titre_rct.getText().toString(),instructions_rct.getText().toString(),diff_rct.getText().toString(),
-                tmps_rct.getText().toString(),1,R.drawable.carotte,Tab_compo_ign); //nbp fixé à 1, à changer?
+                tmps_rct.getText().toString(),1,R.drawable.banane_plantain,Tab_compo_ign); //nbp fixé à 1, à changer?
         add_btn = findViewById(R.id.add_btn);
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int i = 0;
+                text_ing = String.valueOf(ing_rct.getText()).trim().toLowerCase().replace(", ",",").split(",");//on récup le texte des ingrédients et on le formate pour qu'il n'y ai pas de pb d'espaces
+                // ni de majuscule. Enfin on le divise en tableau à chaque ","
+
+                while(i!=text_ing.length){//on va essayer de remplir la liste d'ingredient ici à l'aide du text récupéré (idée: séparation par des "," et couple ing/type/qtt)
+                    Tab_compo_ign.add(new Composition(new Ingredient(text_ing[i].split("/")[0],text_ing[i].split("/")[1]),//ici on crée l'ingredient avec les 2 premieres cases
+                            Integer.parseInt(text_ing[i].split("/")[2]))); //ici,  quantité de l'ingrédient
+                    i++;
+                }//si tout s'est bien passé, Tab_compo_ign est maintenant rempli de compo (ingredient+quantité)
+                Recette Rct = new Recette(titre_rct.getText().toString(),instructions_rct.getText().toString(),diff_rct.getText().toString(),
+                        tmps_rct.getText().toString(),1,R.drawable.banane_plantain,Tab_compo_ign); //nbp fixé à 1, à changer?
+
                 MyDataBase myDB = new MyDataBase(AddActivity.this);
                 myDB.ajouter_rct(Rct); //on converti chaque champs pour qu'ils correspondent à ceux attendus
             }
