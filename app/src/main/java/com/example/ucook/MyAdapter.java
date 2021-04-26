@@ -39,12 +39,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             //Comme ailleur, on adapte la liste d'ingrédient
             int i =0;
             String compo = "";
-            String unite="";
-            String multipl = "";
+
             String test;
 
             while (i!=Livre_rct.Liste.get(j).TabComposition.size()){ //On crée ici le texte des ingrédients
                 test = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
+                String unite="";
+                String multipl = "";
 
                 if(test.equals("liquide")){
                     unite="mL";
