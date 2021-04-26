@@ -43,7 +43,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             String multipl = "";
             String test;
 
-
             while (i!=Livre_rct.Liste.get(j).TabComposition.size()){ //On crée ici le texte des ingrédients
                 test = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
 

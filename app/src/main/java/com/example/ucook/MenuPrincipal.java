@@ -111,16 +111,24 @@ public class MenuPrincipal extends AppCompatActivity {
     }
     void Remplir_Liste_Recette(){
         //Il faut avant cela recreer la tab des compositions
-        String [] tab_compo_txt = String.valueOf(rct_ing).replace("[","").replace("]","").split(","); //on obtient tableau de ing/type/qtt
-        int j=0;
-        ArrayList<Composition> Tab_Compo = new ArrayList<Composition>();
-        while(j!=tab_compo_txt.length){
-            Ingredient ign = new Ingredient(tab_compo_txt[j].split("/")[0],tab_compo_txt[j].split("/")[1]); //création d'un ingrédient
-            Tab_Compo.add(new Composition(ign,Integer.parseInt(tab_compo_txt[j].split("/")[2]))); //creation et ajout d'une compo
-            j++;
-        }
+        String [] tab_compo_txt = String.valueOf(rct_ing).replace("[","").replace("]","").split(", "); //on obtient tableau de ing/type/qtt
+        //[ing/type/qtt,ing/type/qtt,ing/type/qtt]
+        System.out.println("\npppppp"+tab_compo_txt[1]+"\nppppppp");
+
         int i = 0;
         while(i!=rct_id.size()){
+
+            ArrayList<Composition> Tab_Compo = new ArrayList<Composition>();
+
+            String[] ingredient=tab_compo_txt[i].split(","); //[ing/type/qtt]
+            int k= 0;
+            while(k!=ingredient.length){
+                Ingredient ign = new Ingredient(ingredient[k].split("/")[0],ingredient[k].split("/")[1]); //création d'un ingrédient
+                Tab_Compo.add(new Composition(ign,Integer.parseInt(ingredient[k].split("/")[2]))); //creation et ajout d'une compo
+                k++;
+
+
+            }
             Recette rct = new Recette(rct_titre.get(i),rct_inst.get(i),rct_diff.get(i),
                     rct_tmps.get(i),1,Integer.parseInt(rct_image.get(i)),Tab_Compo); //String to int
 
