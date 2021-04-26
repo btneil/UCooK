@@ -25,7 +25,7 @@ public class MenuPrincipal extends AppCompatActivity {
     ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst, rct_nb_personnes, rct_image;
     ListeDeRecettes Livre_rct = new ListeDeRecettes();
 
-    ArrayList s1, s2;
+    ArrayList s1;
     int images[] = {R.drawable.banane_plantain,R.drawable.daube_carotte,
                 R.drawable.galette_des_rois,R.drawable.gateau_choco,R.drawable.gnocci,
                 R.drawable.pdt_hasselback,R.drawable.poivron_farci,R.drawable.pokebowl,
@@ -60,11 +60,6 @@ public class MenuPrincipal extends AppCompatActivity {
 
         myDB = new MyDataBase(MenuPrincipal.this);
 
-
-        //s1 = getResources().getStringArray(R.array.titre_liste_recette); //entrer ici les titres des recettes
-        //s2 = getResources().getStringArray(R.array.description ); //entrer ici les descriptions des recettes (note: pour l'instant présents dans le fichier STRING dans l'ordre)
-        //s1 = Tab_recette;
-        //s2 = Tab_diff;
         rct_id = new ArrayList<>();
         rct_titre = new ArrayList<>();
         rct_diff = new ArrayList<>();
@@ -76,15 +71,7 @@ public class MenuPrincipal extends AppCompatActivity {
         displayData();
 
         Remplir_Liste_Recette();
-        int j = 0;
-        while(j!=Livre_rct.Liste.size()){
-            System.out.println("\n" + Livre_rct.Liste.get(j).Nom);//lignes de test
-            j++;
-            //s1.add(Livre_rct.Liste.get(j).Nom);//on récup tous les nom de recette et on les ajoute dans s1
-        }//La liste de recette est donc bien remplie ! ! !
-//maintenant il faudra remplacer les remplissages en passant par la liste de recette
-        //s1 = rct_titre;
-        s2 = rct_diff;
+
         MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,Livre_rct);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -123,10 +110,19 @@ public class MenuPrincipal extends AppCompatActivity {
         }
     }
     void Remplir_Liste_Recette(){
+        //Il faut avant cela recreer la tab des compositions
+        String [] tab_compo_txt = String.valueOf(rct_ing).replace("[","").replace("]","").split(","); //on obtient tableau de ing/type/qtt
+        int j=0;
+        ArrayList<Composition> Tab_Compo = new ArrayList<Composition>();
+        while(j!=tab_compo_txt.length){
+            Ingredient ign = new Ingredient(tab_compo_txt[j].split("/")[0],tab_compo_txt[j].split("/")[1]); //création d'un ingrédient
+            Tab_Compo.add(new Composition(ign,Integer.parseInt(tab_compo_txt[j].split("/")[2]))); //creation et ajout d'une compo
+            j++;
+        }
         int i = 0;
         while(i!=rct_id.size()){
             Recette rct = new Recette(rct_titre.get(i),rct_inst.get(i),rct_diff.get(i),
-                    rct_tmps.get(i),1,Integer.parseInt(rct_image.get(i))); //String to int
+                    rct_tmps.get(i),1,Integer.parseInt(rct_image.get(i)),Tab_Compo); //String to int
 
             Livre_rct.AjouterRecetteDansListe(rct);
             i++;

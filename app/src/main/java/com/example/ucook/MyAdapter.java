@@ -21,6 +21,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<String> rct_diff = new ArrayList<String>();
     ArrayList<Integer> images = new ArrayList<Integer>();
     ArrayList<String> rct_inst = new ArrayList<String>();
+    ArrayList<String> rct_ing = new ArrayList<String>();
     Context context;
     Activity activity;
 
@@ -33,6 +34,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.rct_diff.add(Livre_rct.Liste.get(j).Difficulte);
             this.images.add(Livre_rct.Liste.get(j).Image);
             this.rct_inst.add(Livre_rct.Liste.get(j).Instructions);
+
+            //Comme ailleur, on adapte la liste d'ingrédient
+            int i =0;
+            String compo = "";
+            String unite="";
+            String multipl = "";
+
+
+            while (i!=Livre_rct.Liste.get(j).TabComposition.size()){ //On crée ici le texte des ingrédients
+                String test = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
+                if(test=="liquide"){
+                    unite="mL";
+                }//si l'ingrédient est un liquide
+                if(test=="poids"){
+                    unite="g";
+                }//si l'ingrédient se pese
+                if(test=="pincée"){
+                    unite="pincée";
+                }//si l'ingredient se compte en "pincée"
+                if(test=="nombre"){
+                    multipl=" x";
+                }//si l'ingredient se compte en nombre d'ingredient
+                System.out.println("\n" + test=="liquide");
+                compo = compo + Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Nom
+                        + multipl + String.valueOf(Livre_rct.Liste.get(j).TabComposition.get(i).Quantite) + unite + "\n";
+                i++;
+            }
+            this.rct_ing.add(compo);
             j++;
         }
     }
@@ -58,6 +87,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("rct_diff", String.valueOf(rct_diff.get(position)));
                 intent.putExtra("images", Integer.valueOf(images.get(position)));
                 intent.putExtra("instructions", String.valueOf(rct_inst.get(position)));
+                intent.putExtra("ingredients", String.valueOf(rct_ing.get(position)));
                 activity.startActivityForResult(intent,1);
             }
         });

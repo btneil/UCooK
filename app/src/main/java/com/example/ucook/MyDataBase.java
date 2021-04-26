@@ -13,7 +13,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATA_BASE_NAME ="Liste_de_recettes";
-    private static final int DATA_BASE_VERSION =2;
+    private static final int DATA_BASE_VERSION =3;
 
     private static final String TABLE_NAME = "mon_livre";
     private static final String COLUMN_ID = "_id";
@@ -59,7 +59,19 @@ public class MyDataBase extends SQLiteOpenHelper {
         cv.put(COLUMN_TITLE, Rct.Nom);
         System.out.println("La nom de la recette ajoutée est : " + Rct.Nom);
         cv.put(COLUMN_DIFF, Rct.Difficulte);
-        cv.put(COLUMN_ING, Rct.Instructions); // trouver un moyen d'y mettre une liste d'ingrédients
+
+        //On va transformer la tab des compo en String
+        int i =0;
+        String TabCompoTransition="";
+        while (i!=Rct.TabComposition.size()){
+            TabCompoTransition=TabCompoTransition+String.valueOf(Rct.TabComposition.get(i).Ingredient.Nom)+"/";
+            TabCompoTransition=TabCompoTransition+String.valueOf(Rct.TabComposition.get(i).Ingredient.Type)+"/";
+            TabCompoTransition=TabCompoTransition+String.valueOf(Rct.TabComposition.get(i).Quantite)+",";
+            i++;
+        }
+        String TabCompoTxt=TabCompoTransition.substring(0,TabCompoTransition.length()-1); //on enlève la dernière virgule, et voila le String des ing/type/qtt
+
+        cv.put(COLUMN_ING, TabCompoTxt); // liste ingredient au format String
         cv.put(COLUMN_TEMPS, Rct.Temps);
         cv.put(COLUMN_IMG, Rct.Image);
         cv.put(COLUMN_INST, Rct.Instructions);

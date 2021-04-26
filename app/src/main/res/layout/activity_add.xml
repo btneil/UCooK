@@ -62,7 +62,7 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Ingrédients"
+        android:text="Tomates/nombre/5, Avocat/nombre/2, Huile/liquide/150"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titre_rct" />
 

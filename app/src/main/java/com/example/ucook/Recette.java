@@ -19,12 +19,13 @@ public class Recette {
     ArrayList<Composition> TabComposition = new ArrayList<Composition>();
     File recette = new File("Recette/Recette.txt");/*public Recette(String nom, String instructions, int temps, int note, String difficulte, int nbpersonnes, String Image){Nom=nom;Instructions=instructions;Temps=temps;Note=note;Difficulte=difficulte;NbPersonnes=nbpersonnes;}*/
 
-    public Recette(String nom, String inst, String diff, String tpms, int nbp,int img) {
+    public Recette(String nom, String inst, String diff, String tpms, int nbp,int img,ArrayList<Composition>Liste_ing) {
         Nom = nom;
         Instructions = inst;
         Difficulte = diff;
         Temps = tpms;
         NbPersonnes = nbp;
         Image = img;
+        TabComposition = Liste_ing;
     }
 }
