@@ -65,10 +65,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
                 if(test.equals("cuillière")){
                     unite=" cuillière";
-                    multipl=" x";
+                    multipl="x";
                 }//si l'ingredient se compte en cuillière
 
-                compo = compo + Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Nom
+                compo = compo + Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Nom + " "
                         + multipl + String.valueOf(Livre_rct.Liste.get(j).TabComposition.get(i).Quantite) + unite + "\n";
                 i++;
             }

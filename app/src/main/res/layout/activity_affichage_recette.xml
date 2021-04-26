@@ -70,6 +70,7 @@
             android:layout_marginTop="10dp"
             android:text="Ingrédients: "
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/Ingredients_txt"
             app:layout_constraintTop_toBottomOf="@+id/image_affichage_recette" />
 
@@ -80,6 +81,7 @@
             android:layout_marginTop="10dp"
             android:text="Instructions: "
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/textView10"
             app:layout_constraintTop_toBottomOf="@+id/Ingredients_txt" />
 
@@ -117,12 +119,13 @@
 
     <TextView
         android:id="@+id/titre_affichage_recette"
-        android:layout_width="325dp"
-        android:layout_height="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Recette"
         android:textSize="40dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
@@ -135,6 +138,20 @@
         app:layout_constraintStart_toStartOf="@+id/titre_affichage_recette"
         app:layout_constraintTop_toBottomOf="@+id/titre_affichage_recette" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:clickable="true"
+        android:outlineAmbientShadowColor="@color/couleur_fond_fenetre"
+        android:outlineSpotShadowColor="@color/couleur_fond_fenetre"
+        app:backgroundTint="@color/couleur_fond_fenetre"
+        app:layout_constraintBottom_toBottomOf="@+id/titre_affichage_recette"
+        app:layout_constraintStart_toEndOf="@+id/titre_affichage_recette"
+        app:layout_constraintTop_toTopOf="@+id/titre_affichage_recette"
+        app:rippleColor="@color/couleur_fond_fenetre"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

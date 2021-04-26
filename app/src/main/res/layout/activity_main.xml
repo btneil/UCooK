@@ -63,6 +63,7 @@
         android:backgroundTint="@color/couleur_button1"
         android:fontFamily="@font/vollkornsc_regular"
         android:text="Liste de Recettes"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -74,6 +75,7 @@
         android:layout_width="111dp"
         android:layout_height="105dp"
         android:backgroundTint="@color/couleur_button2"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/Ajouter_rct_btn"
         app:layout_constraintHorizontal_bias="0.0"
@@ -87,6 +89,7 @@
         android:layout_width="111dp"
         android:layout_height="105dp"
         android:backgroundTint="@color/couleur_button2"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
