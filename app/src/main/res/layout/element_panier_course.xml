@@ -25,6 +25,7 @@
             android:id="@+id/titre_ing"
             android:layout_width="223dp"
             android:layout_height="51dp"
+            android:fontFamily="@font/vollkornsc_regular"
             android:text="Ingrédient: "
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp" />
@@ -34,6 +35,7 @@
             android:layout_width="80dp"
             android:layout_height="36dp"
             android:gravity="center"
+            android:fontFamily="@font/vollkornsc_regular"
             android:text="Qte: "
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/titre_ing"

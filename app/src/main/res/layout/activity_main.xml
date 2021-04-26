@@ -41,12 +41,13 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:textSize="40dp"
-        android:layout_width="136dp"
-        android:layout_height="72dp"
+        android:layout_width="146dp"
+        android:layout_height="69dp"
         android:layout_marginStart="136dp"
         android:layout_marginTop="44dp"
+        android:fontFamily="@font/vollkornsc_bold"
         android:text="@string/app_name"
+        android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -60,6 +61,7 @@
         android:layout_marginTop="420dp"
         android:layout_weight="1"
         android:backgroundTint="@color/couleur_button1"
+        android:fontFamily="@font/vollkornsc_regular"
         android:text="Liste de Recettes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

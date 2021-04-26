@@ -30,6 +30,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
+        android:fontFamily="@font/vollkornsc_regular"
         android:text="Panier de Course"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
