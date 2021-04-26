@@ -44,19 +44,28 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
             while (i!=Livre_rct.Liste.get(j).TabComposition.size()){ //On crée ici le texte des ingrédients
                 String test = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
-                if(test=="liquide"){
+
+                if(test.equals("liquide")){
                     unite="mL";
                 }//si l'ingrédient est un liquide
-                if(test=="poids"){
+
+                if(test.equals("poids")){
                     unite="g";
                 }//si l'ingrédient se pese
-                if(test=="pincée"){
+
+                if(test.equals("pincée")){
                     unite="pincée";
                 }//si l'ingredient se compte en "pincée"
-                if(test=="nombre"){
+
+                if(test.equals("nombre")){
                     multipl=" x";
                 }//si l'ingredient se compte en nombre d'ingredient
-                System.out.println("\n" + test=="liquide");
+
+                if(test.equals("cuillière")){
+                    unite=" cuillière";
+                    multipl=" x";
+                }//si l'ingredient se compte en cuillière
+
                 compo = compo + Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Nom
                         + multipl + String.valueOf(Livre_rct.Liste.get(j).TabComposition.get(i).Quantite) + unite + "\n";
                 i++;
