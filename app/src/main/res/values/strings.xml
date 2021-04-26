@@ -18,9 +18,6 @@
     <string name="bt_Panier">Retirer du panier</string>
 
 
-
-
-
     <string name="titre_rct">CroqueMonsieur</string>
     <string-array name="titre_liste_recette">
         <item>Banane plantain</item>

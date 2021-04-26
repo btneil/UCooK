@@ -17,13 +17,15 @@ import java.util.ArrayList;
 
 public class MenuPrincipal extends AppCompatActivity {
 
+    private FloatingActionButton home_btn;
+
     RecyclerView recyclerView;
-    FloatingActionButton Ajouter_rct_btn;
 
     MyDataBase myDB;
-    ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst;
+    ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst, rct_nb_personnes, rct_image;
+    ListeDeRecettes Livre_rct = new ListeDeRecettes();
 
-    ArrayList s1, s2;
+    ArrayList s1;
     int images[] = {R.drawable.banane_plantain,R.drawable.daube_carotte,
                 R.drawable.galette_des_rois,R.drawable.gateau_choco,R.drawable.gnocci,
                 R.drawable.pdt_hasselback,R.drawable.poivron_farci,R.drawable.pokebowl,
@@ -36,9 +38,6 @@ public class MenuPrincipal extends AppCompatActivity {
                 R.drawable.carotte,R.drawable.lasagne,R.drawable.carotte,
                 R.drawable.lasagne,R.drawable.carotte,R.drawable.lasagne};
 
-    //Recette CroqueM=new Recette();
-    //String [] Tab_recette = {CroqueM.Nom};
-    //String[] Tab_diff = {CroqueM.Difficulte};
 
 
     @Override
@@ -46,34 +45,34 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        Ajouter_rct_btn = findViewById(R.id.Ajouter_rct_btn);
-        Ajouter_rct_btn.setOnClickListener(new View.OnClickListener() {
+        this.home_btn=findViewById(R.id.home_btn);
+
+        home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipal.this, AddActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                Intent Retour_menu = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(Retour_menu);
+                finish();
             }
         });
 
+        recyclerView = findViewById(R.id.recyclerView);
+
         myDB = new MyDataBase(MenuPrincipal.this);
 
-
-        //s1 = getResources().getStringArray(R.array.titre_liste_recette); //entrer ici les titres des recettes
-        //s2 = getResources().getStringArray(R.array.description ); //entrer ici les descriptions des recettes (note: pour l'instant présents dans le fichier STRING dans l'ordre)
-        //s1 = Tab_recette;
-        //s2 = Tab_diff;
         rct_id = new ArrayList<>();
         rct_titre = new ArrayList<>();
         rct_diff = new ArrayList<>();
         rct_ing = new ArrayList<>();
         rct_tmps = new ArrayList<>();
         rct_inst = new ArrayList<>();
+        rct_image = new ArrayList<>();
 
         displayData();
-        s1 = rct_titre;
-        s2 = rct_diff;
-        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,s1,s2,images);
+
+        Remplir_Liste_Recette();
+
+        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,Livre_rct);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -87,7 +86,7 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     void displayData(){
-        Cursor cursor = myDB.readAllData();
+        Cursor cursor = myDB.readAllData(); //contient toutes les données de la bdd
         if(cursor.getCount() == 0){
             Toast.makeText(this, "Pas de Recette", Toast.LENGTH_SHORT).show();
         }
@@ -98,8 +97,10 @@ public class MenuPrincipal extends AppCompatActivity {
                 rct_diff.add(cursor.getString(2));
                 rct_ing.add(cursor.getString(3));
                 rct_tmps.add(cursor.getString(4));
-                rct_inst.add(cursor.getString(5));
+                rct_inst.add(cursor.getString(6)); // /!\ colonne 6 pas 5 (ordre colonne bdd) /!\
+                rct_image.add(cursor.getString(5)); //colonne à rajouter dans bdd
                 System.out.print("Dans la while");
+
 
                 //Recette rct_id = new Recette(); // idéalement, il faudrait ajouter dans une liste de recette (objet)
                 // des recettes crééent à partir des parametres ci-dessus. On pourrait alors y accéder plus facilement, et l'affichage serait plus simple
@@ -107,5 +108,25 @@ public class MenuPrincipal extends AppCompatActivity {
 
             }
         }
+    }
+    void Remplir_Liste_Recette(){
+        //Il faut avant cela recreer la tab des compositions
+        String [] tab_compo_txt = String.valueOf(rct_ing).replace("[","").replace("]","").split(","); //on obtient tableau de ing/type/qtt
+        int j=0;
+        ArrayList<Composition> Tab_Compo = new ArrayList<Composition>();
+        while(j!=tab_compo_txt.length){
+            Ingredient ign = new Ingredient(tab_compo_txt[j].split("/")[0],tab_compo_txt[j].split("/")[1]); //création d'un ingrédient
+            Tab_Compo.add(new Composition(ign,Integer.parseInt(tab_compo_txt[j].split("/")[2]))); //creation et ajout d'une compo
+            j++;
+        }
+        int i = 0;
+        while(i!=rct_id.size()){
+            Recette rct = new Recette(rct_titre.get(i),rct_inst.get(i),rct_diff.get(i),
+                    rct_tmps.get(i),1,Integer.parseInt(rct_image.get(i)),Tab_Compo); //String to int
+
+            Livre_rct.AjouterRecetteDansListe(rct);
+            i++;
+        }
+
     }
 }

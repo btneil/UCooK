@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class AddActivity extends AppCompatActivity {
 
 
-    EditText titre_rct, diff_rct, ing_rct, tmps_rct, instructions_rct;
+    EditText titre_rct, diff_rct, ing_rct, tmps_rct, instructions_rct, photo_rct;
     Button add_btn;
+    ArrayList<Composition> Tab_compo_ign = new ArrayList<Composition>();
+    String [] text_ing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +26,26 @@ public class AddActivity extends AppCompatActivity {
         diff_rct = findViewById(R.id.diff_rct);
         ing_rct = findViewById(R.id.ing_rct);
         tmps_rct = findViewById(R.id.tmps_rct);
-        instructions_rct = findViewById(R.id.description);
+        instructions_rct = findViewById(R.id.instructions);
+        photo_rct = findViewById(R.id.photo_rct);
+        int i = 0;
+        text_ing = String.valueOf(ing_rct.getText()).trim().toLowerCase().replace(", ",",").split(",");//on récup le texte des ingrédients et on le formate pour qu'il n'y ai pas de pb d'espaces
+                                                                                            // ni de majuscule. Enfin on le divise en tableau à chaque ","
+
+        while(i!=text_ing.length){//on va essayer de remplir la liste d'ingredient ici à l'aide du text récupéré (idée: séparation par des "," et couple ing/type/qtt)
+            Tab_compo_ign.add(new Composition(new Ingredient(text_ing[i].split("/")[0],text_ing[i].split("/")[1]),//ici on crée l'ingredient avec les 2 premieres cases
+                    Integer.parseInt(text_ing[i].split("/")[2]))); //ici,  quantité de l'ingrédient
+            i++;
+        }//si tout s'est bien passé, Tab_compo_ign est maintenant rempli de compo (ingredient+quantité)
+
+        Recette Rct = new Recette(titre_rct.getText().toString(),instructions_rct.getText().toString(),diff_rct.getText().toString(),
+                tmps_rct.getText().toString(),1,R.drawable.carotte,Tab_compo_ign); //nbp fixé à 1, à changer?
         add_btn = findViewById(R.id.add_btn);
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyDataBase myDB = new MyDataBase(AddActivity.this);
-                myDB.ajouter_rct(titre_rct.getText().toString().trim(),
-                        diff_rct.getText().toString().trim(),
-                        ing_rct.getText().toString().trim(),
-                        Integer.valueOf(tmps_rct.getText().toString().trim()),
-                        instructions_rct.getText().toString().trim()); //on converti chaque champs pour qu'ils correspondent à ceux attendus
+                myDB.ajouter_rct(Rct); //on converti chaque champs pour qu'ils correspondent à ceux attendus
             }
         });
     }
