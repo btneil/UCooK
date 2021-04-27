@@ -19,12 +19,12 @@ public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_In
     ArrayList<Ingredient> Composition;
     Context context;
     Activity activity;
-    String AAA;
+    String [] Tab_compo;
 
-    MyAdapter_Ajout_Ing(Activity activity,Context ct, String AAA){
+    MyAdapter_Ajout_Ing(Activity activity,Context ct, String [] Tab_compo){
         context = ct;
         this.activity = activity;
-        this.AAA = AAA;
+        this.Tab_compo = Tab_compo;
     }
 
     @NonNull
@@ -37,7 +37,7 @@ public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_In
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter_Ajout_Ing.MyViewHolder holder, int position) {
-        holder.composition_txt.setText(AAA);
+        holder.composition_txt.setText("Nom ingrédient: "+Tab_compo[position].split(" ")[0]+"\n"+"Qte: "+Tab_compo[position].split(" ")[1]);
         holder.layout_compo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_In
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 3;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

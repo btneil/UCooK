@@ -12,20 +12,18 @@ import java.util.ArrayList;
 public class Ajout_ingredient extends AppCompatActivity {
 
     RecyclerView recyclerview_Ing;
-    ArrayList Compo;
-    String Aff_ing,composition;
+    ArrayList<Composition> Compo;
+    String composition;
+    String [] Tab_Compo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajout_ingredient);
-        Compo = new ArrayList<Ingredient>();
         recyclerview_Ing = findViewById(R.id.recyclerview_Ing);
         getData();
         setData();
-        MyAdapter_Ajout_Ing myAdapter = new MyAdapter_Ajout_Ing(Ajout_ingredient.this,this,Aff_ing);
-        recyclerview_Ing.setAdapter(myAdapter);
-        recyclerview_Ing.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
     private void getData(){
@@ -35,8 +33,11 @@ public class Ajout_ingredient extends AppCompatActivity {
         else{
             Toast.makeText(this,"Pas d'ingredient", Toast.LENGTH_SHORT).show();
         }
+        Tab_Compo = composition.split("\n");
     }
     private void setData(){
-        Aff_ing="Nom ingrédient: "+composition+"\nQte:";
+        MyAdapter_Ajout_Ing myAdapter = new MyAdapter_Ajout_Ing(Ajout_ingredient.this,this,Tab_Compo);
+        recyclerview_Ing.setAdapter(myAdapter);
+        recyclerview_Ing.setLayoutManager(new LinearLayoutManager(this));
     }
 }

@@ -60,7 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 }//si l'ingredient se compte en "pincée"
 
                 if(test.equals("nombre")){
-                    multipl=" x";
+                    multipl="x";
                 }//si l'ingredient se compte en nombre d'ingredient
 
                 if(test.equals("cuillière")){

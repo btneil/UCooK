@@ -62,8 +62,8 @@ public class AffichageRecette extends AppCompatActivity {
         ajouter_panier_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyAdapter_Ajout_Ing MyAdapter = new MyAdapter_Ajout_Ing(AffichageRecette.this,getApplicationContext(),"azerty");
                 Intent Ajout_Ing = new Intent(getApplicationContext(),Ajout_ingredient.class);
+                Ajout_Ing.putExtra("composition", ingredients);
                 startActivity(Ajout_Ing);
                 finish();
             }
