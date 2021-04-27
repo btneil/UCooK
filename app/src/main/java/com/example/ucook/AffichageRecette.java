@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,10 +25,12 @@ public class AffichageRecette extends AppCompatActivity {
     TextView instructions_txt;
     TextView Ingredients_txt;
 
+
     String data1, data2, instructions, ingredients;
     int images;
 
     private FloatingActionButton home_btn;
+    private ImageButton ajouter_panier_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class AffichageRecette extends AppCompatActivity {
 
 
         this.home_btn = findViewById(R.id.home_btn);
+        this.ajouter_panier_btn = findViewById(R.id.ajouter_panier_btn);
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,9 +59,15 @@ public class AffichageRecette extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
+        ajouter_panier_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyAdapter_Ajout_Ing MyAdapter = new MyAdapter_Ajout_Ing(AffichageRecette.this,getApplicationContext(),"azerty");
+                Intent Ajout_Ing = new Intent(getApplicationContext(),Ajout_ingredient.class);
+                startActivity(Ajout_Ing);
+                finish();
+            }
+        });
     }
 
     private void getData(){

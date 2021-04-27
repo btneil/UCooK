@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/icon2"
         android:supportsRtl="true"
         android:theme="@style/Theme.UCooK">
-        <activity android:name=".AfficherPanier"></activity>
+        <activity android:name=".Ajout_ingredient"></activity>
+        <activity android:name=".AfficherPanier" />
         <activity android:name=".AddActivity" />
         <activity android:name=".MenuPrincipal" />
         <activity
