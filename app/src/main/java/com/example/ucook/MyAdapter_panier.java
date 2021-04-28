@@ -40,16 +40,6 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
     public void onBindViewHolder(@NonNull MyAdapter_panier.MyViewHolder holder, int position) {
         holder.titre_ing_txt.setText(String.valueOf(Nom_ingredient.get(position)));
         holder.quantite_txt.setText(String.valueOf(quantite.get(position)));
-        holder.layout_affichage_ing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, AffichageRecette.class);
-                intent.putExtra("rct_titre", String.valueOf(Nom_ingredient.get(position)));
-                intent.putExtra("rct_diff", String.valueOf(quantite.get(position)));
-                activity.startActivityForResult(intent,1);
-            }
-        });
-
     }
 
     @Override

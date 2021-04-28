@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,12 +39,16 @@ public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_In
     @Override
     public void onBindViewHolder(@NonNull MyAdapter_Ajout_Ing.MyViewHolder holder, int position) {
         holder.composition_txt.setText("Nom ingrédient: "+Tab_compo[position].split(" ")[0]+"\n"+"Qte: "+Tab_compo[position].split(" ")[1]);
-        holder.layout_compo.setOnClickListener(new View.OnClickListener() {
+        holder.composition_txt.setTextColor(-7829368);
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Ajout_ingredient.class);
-                intent.putExtra("composition", "test");
-                activity.startActivityForResult(intent,1);
+                if(holder.composition_txt.getTextColors().getDefaultColor()!=-16777216){
+                    holder.composition_txt.setTextColor(-16777216);
+                }
+                else{
+                    holder.composition_txt.setTextColor(-7829368);
+                }
             }
         });
 
@@ -51,18 +56,20 @@ public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_In
 
     @Override
     public int getItemCount() {
-        return 3;
+        return Tab_compo.length;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView composition_txt;
         ConstraintLayout layout_compo;
+        CheckBox checkBox;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             composition_txt = itemView.findViewById(R.id.composition_txt);
             layout_compo = itemView.findViewById(R.id.layout_compo);
+            checkBox = itemView.findViewById(R.id.checkBox);
         }
     }
 }

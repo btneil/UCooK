@@ -113,7 +113,6 @@ public class MenuPrincipal extends AppCompatActivity {
         //Il faut avant cela recreer la tab des compositions
         String [] tab_compo_txt = String.valueOf(rct_ing).replace("[","").replace("]","").split(", "); //on obtient tableau de ing/type/qtt
         //[ing/type/qtt,ing/type/qtt,ing/type/qtt]
-        System.out.println("\npppppp"+tab_compo_txt[1]+"\nppppppp");
 
         int i = 0;
         while(i!=rct_id.size()){

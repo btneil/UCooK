@@ -25,6 +25,7 @@ public class AfficherPanier extends AppCompatActivity {
         Nom_ing.add("aaa");
         Nom_ing.add("bbb");
         Nom_ing.add("ccc");
+        Nom_ing.add("ddd");
         Qte.add("5g");
         Qte.add("6");
         Qte.add("9");
@@ -35,6 +36,7 @@ public class AfficherPanier extends AppCompatActivity {
         MyAdapter_panier myAdapter = new MyAdapter_panier(AfficherPanier.this,this,Nom_ing,Qte);
         recyclerView_panier.setAdapter(myAdapter);
         recyclerView_panier.setLayoutManager(new LinearLayoutManager(this));
+        Qte.add(String.valueOf(getIntent().hasExtra("Ingrédient_a_ajouter")));
 
         this.home_btn_panier=findViewById(R.id.home_btn_panier);
 

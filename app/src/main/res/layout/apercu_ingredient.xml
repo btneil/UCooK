@@ -16,7 +16,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:background="@color/couleur_fond_fenetre"
             android:id="@+id/composition_txt"
             android:layout_width="260dp"
             android:layout_height="70dp"
@@ -34,8 +33,10 @@
             android:layout_width="28dp"
             android:layout_height="50dp"
             android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/composition_txt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            tools:layout_editor_absoluteY="26dp" />
+            app:layout_constraintStart_toEndOf="@+id/composition_txt"
+            app:layout_constraintTop_toTopOf="@+id/composition_txt" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
