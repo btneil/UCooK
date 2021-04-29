@@ -30,8 +30,15 @@ public class Ajout_ingredient extends AppCompatActivity {
         confirmer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyDataBase_panier MyDB = new MyDataBase_panier(Ajout_ingredient.this);
+                int i = 0;
+                while(i!=Tab_Compo.length){
+                    String [] Compo = Tab_Compo[i].split(" ");
+                    MyDB.ajouter_rct(Compo[0],Compo[1],Compo[1]); //actuelleemnt, type inutile donc à enlever?
+                    i++;
+                }
+                MyDB.ajouter_rct("Ingrédient","Type","Qte");
                 Intent Ajout_dans_panier = new Intent(getApplicationContext(),AfficherPanier.class);
-                Ajout_dans_panier.putExtra("Ingrédient_a_ajouter", "test1");
                 startActivity(Ajout_dans_panier);
                 finish();
             }

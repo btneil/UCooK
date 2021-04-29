@@ -17,15 +17,16 @@ import java.util.ArrayList;
 
 public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyViewHolder>{
 
-    ArrayList Nom_ingredient, quantite;
+    ArrayList Nom_ingredient, quantite, type;
     Context context;
     Activity activity;
 
-    MyAdapter_panier(Activity activity,Context ct, ArrayList Nom_ingredient, ArrayList quantite){
+    MyAdapter_panier(Activity activity,Context ct, ArrayList Nom_ingredient, ArrayList quantite,ArrayList type){
         context = ct;
         this.activity = activity;
         this.Nom_ingredient = Nom_ingredient;
         this.quantite = quantite;
+        this.type = type;
     }
 
     @NonNull
