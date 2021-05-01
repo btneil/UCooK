@@ -16,11 +16,10 @@ import java.util.ArrayList;
 public class Ajout_ingredient extends AppCompatActivity {
 
     RecyclerView recyclerview_Ing;
-    String composition;
+    String composition,ing_type;
     String [] Tab_Compo;
     private Button confirmer_btn;
-    ArrayList<String> ing_nom,ing_qte;
-    String ing_id;
+    ArrayList<String> ing_nom,ing_qte, ing_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +31,24 @@ public class Ajout_ingredient extends AppCompatActivity {
         setData();
         ing_nom = new ArrayList<>();
         ing_qte = new ArrayList<>();
+        ing_id = new ArrayList<>();
+        MyDataBase_panier MyDB = new MyDataBase_panier(Ajout_ingredient.this);
         confirmer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyDataBase_panier MyDB = new MyDataBase_panier(Ajout_ingredient.this);
                 int i = 0;
-                while(i!=Tab_Compo.length){
+                String [] recup_qte_et_id;
+                while(i!=Tab_Compo.length){ //pour chaque composition
                     String [] Compo = Tab_Compo[i].split(" ");
                     if(Ingredient_deja_present(MyDB,Compo[0])==false){ //on test si l'ingrédient est déjà présent dans la bdd
-                        MyDB.ajouter_rct(Compo[0],Compo[1],Compo[1]); //actuelleemnt, type inutile donc à enlever?
+                        System.out.println(ing_type);
+                        MyDB.ajouter_rct(Compo[0],ing_type.split("!")[i+1],Integer.parseInt(formatage_data(Compo[1]))); //actuelleemnt, type inutile donc à enlever?
                     }
                     else{
                         //ici il faut trouver l'ingredient deja present, puis ajouter la quantité souhaitée
-                        System.out.println(formatage_data(recup_ancienne_qte(MyDB,Compo[0])));
-                        int new_qte = Integer.parseInt(formatage_data(Compo[1]))+Integer.parseInt(formatage_data(recup_ancienne_qte(MyDB,Compo[0]))); //si qte = int dans la bdd -> + simple
-                        MyDB.updateData(ing_id,String.valueOf(new_qte));
+                        recup_qte_et_id = recup_ancienne_qte(MyDB,Compo[0]).split("/");
+                        int new_qte = Integer.parseInt(formatage_data(Compo[1]))+Integer.parseInt(recup_qte_et_id[0]); //si qte = int dans la bdd -> + simple
+                        MyDB.updateData(recup_qte_et_id[1],new_qte);
                     }
 
                     i++;
@@ -63,7 +65,7 @@ public class Ajout_ingredient extends AppCompatActivity {
     private void getData(){
         if(getIntent().hasExtra("composition")){ // on vérifie que composition existe
             composition = getIntent().getStringExtra("composition");
-            ing_id = getIntent().getStringExtra("ing_id");
+            ing_type = getIntent().getStringExtra("ing_type");
         }
         else{
             Toast.makeText(this,"Pas d'ingredient", Toast.LENGTH_SHORT).show();
@@ -78,9 +80,13 @@ public class Ajout_ingredient extends AppCompatActivity {
     private boolean Ingredient_deja_present(MyDataBase_panier MyDB, String Nom_ing){
         boolean ingredient_deja_present = false;
         Cursor cursor = MyDB.readAllData();
+        ing_nom.clear();
+        ing_qte.clear();
+        ing_id.clear();
         if(cursor.getCount() != 0){
             while(cursor.moveToNext()){
                 ing_nom.add(cursor.getString(1));
+                ing_id.add(cursor.getString(0));
             }
             int i = 0;
             while (i!=ing_nom.size()){
@@ -95,17 +101,16 @@ public class Ajout_ingredient extends AppCompatActivity {
     }
 
     private String recup_ancienne_qte(MyDataBase_panier MyDB, String Nom_ing){
-        String Qte="";
         Cursor cursor = MyDB.readAllData();
         if(cursor.getCount() != 0){
             while(cursor.moveToNext()){
-                ing_nom.add(cursor.getString(1));
-                ing_qte.add(cursor.getString(2));
+                ing_qte.add(cursor.getString(3));
             }
             int i = 0;
             while (i!=ing_nom.size()){
                 if(String.valueOf(ing_nom.get(i)).equals(Nom_ing)==true){
-                    return String.valueOf(ing_qte.get(i));
+                    System.out.println(String.valueOf(ing_qte.get(i)));
+                    return String.valueOf(ing_qte.get(i))+"/"+String.valueOf(ing_id.get(i));
                 }
                 i++;
             }

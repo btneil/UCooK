@@ -25,6 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<String> id_liste = new ArrayList<>();
     Context context;
     Activity activity;
+    String unite,multipl;
 
     MyAdapter(Activity activity, Context ct, ListeDeRecettes Livre_rct, ArrayList<String> id_liste){ //changement! plus de liste s1 et s2 mais uns liste de recette en entrée
         context = ct;
@@ -42,36 +43,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             int i =0;
             String compo = "";
 
-            String test;
+            String type_ing;
 
             while (i!=Livre_rct.Liste.get(j).TabComposition.size()){ //On crée ici le texte des ingrédients
-                test = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
-                String unite="";
-                String multipl = "";
+                type_ing = Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Type;
 
-                if(test.equals("liquide")){
-                    unite="mL";
-                }//si l'ingrédient est un liquide
-
-                if(test.equals("poids")){
-                    unite="g";
-                }//si l'ingrédient se pese
-
-                if(test.equals("pincée")){
-                    unite="pincée";
-                }//si l'ingredient se compte en "pincée"
-
-                if(test.equals("nombre")){
-                    multipl="x";
-                }//si l'ingredient se compte en nombre d'ingredient
-
-                if(test.equals("cuillière")){
-                    unite=" cuillière";
-                    multipl="x";
-                }//si l'ingredient se compte en cuillière
+                mise_en_forme(type_ing);
 
                 compo = compo + Livre_rct.Liste.get(j).TabComposition.get(i).Ingredient.Nom + " "
-                        + multipl + String.valueOf(Livre_rct.Liste.get(j).TabComposition.get(i).Quantite) + unite + "\n";
+                        + multipl + String.valueOf(Livre_rct.Liste.get(j).TabComposition.get(i).Quantite) + unite + "!"+type_ing+"!";
                 i++;
             }
             this.rct_ing.add(compo);
@@ -101,7 +81,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("images", Integer.valueOf(images.get(position)));
                 intent.putExtra("instructions", String.valueOf(rct_inst.get(position)));
                 intent.putExtra("ingredients", String.valueOf(rct_ing.get(position)));
-                intent.putExtra("ing_id",String.valueOf(id_liste.get(position)));
                 activity.startActivityForResult(intent,1);
             }
         });
@@ -126,5 +105,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             myImage = itemView.findViewById(R.id.image_recette);
             layout_affichage_recette = itemView.findViewById(R.id.layout_affichage_recette);
         }
+    }
+    public void mise_en_forme(String test){
+        unite="";
+        multipl = "";
+
+        if(test.equals("liquide")){
+            unite="mL";
+        }//si l'ingrédient est un liquide
+
+        if(test.equals("poids")){
+            unite="g";
+        }//si l'ingrédient se pese
+
+        if(test.equals("pincée")){
+            unite="pincée";
+        }//si l'ingredient se compte en "pincée"
+
+        if(test.equals("nombre")){
+            multipl="x";
+        }//si l'ingredient se compte en nombre d'ingredient
+
+        if(test.equals("cuillière")){
+            unite=" cuillière";
+            multipl="x";
+        }//si l'ingredient se compte en cuillière
     }
 }

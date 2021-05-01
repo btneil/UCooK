@@ -26,7 +26,7 @@ public class AffichageRecette extends AppCompatActivity {
     TextView Ingredients_txt;
 
 
-    String data1, data2, instructions, ingredients, ing_id;
+    String data1, data2, instructions, ingredients,ing_type, ing_txt;
     int images;
 
     private FloatingActionButton home_btn;
@@ -63,8 +63,8 @@ public class AffichageRecette extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Ajout_Ing = new Intent(getApplicationContext(),Ajout_ingredient.class);
-                Ajout_Ing.putExtra("composition", ingredients);
-                Ajout_Ing.putExtra("ing_id", ing_id);
+                Ajout_Ing.putExtra("composition", ing_txt);
+                Ajout_Ing.putExtra("ing_type", ing_type);
                 startActivity(Ajout_Ing);
                 finish();
             }
@@ -79,7 +79,6 @@ public class AffichageRecette extends AppCompatActivity {
             images = getIntent().getIntExtra("images",1);
             instructions = getIntent().getStringExtra("instructions");
             ingredients = getIntent().getStringExtra("ingredients");
-            ing_id = getIntent().getStringExtra("ing_id");
         }
         else{
             Toast.makeText(this,"No data.", Toast.LENGTH_SHORT).show();
@@ -90,7 +89,15 @@ public class AffichageRecette extends AppCompatActivity {
         text_diff.setText(data2);
         image_affichage_recette.setImageResource(images);
         instructions_txt.setText(instructions);
-        Ingredients_txt.setText(ingredients);
+        ing_type = "";
+        int i = 0;
+        ing_txt = "";
+        while (i < ingredients.split("!").length) {
+            ing_txt = ing_txt + ingredients.split("!")[i] + "\n"; //on met en forme l'affichage des ingrédients (on enleve le type)
+            ing_type = ing_type + "!" + ingredients.split("!")[i+1];
+            i=i+2;
+        }
+        Ingredients_txt.setText(ing_txt);
 
     }
 }

@@ -13,7 +13,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATA_BASE_NAME ="Panier";
-    private static final int DATA_BASE_VERSION =8;
+    private static final int DATA_BASE_VERSION =14;
 
     private static final String TABLE_NAME = "ma_liste";
     private static final String COLUMN_ID = "_id";
@@ -33,7 +33,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_INGR + " TEXT, " +
                 COLUMN_TYPE + " TEXT, " +
-                COLUMN_QTE + " TEXT);"; //Declaration du SQL dans query, ATTENTION AUX ESPACES ! ! ! +Int plutot que string plus malin, mais pb??? à revoir
+                COLUMN_QTE + " int);"; //Declaration du SQL dans query, ATTENTION AUX ESPACES ! ! ! +Int plutot que string plus malin, mais pb??? à revoir
 
         db.execSQL(query);
 
@@ -45,7 +45,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void ajouter_rct(String ingredient,String type,String qte){
+    void ajouter_rct(String ingredient,String type,int qte){
         SQLiteDatabase db = this.getWritableDatabase(); //pour écrire das la bdd
         ContentValues cv = new ContentValues(); //ce qui permet d'écrire dans la bdd
 
@@ -73,11 +73,9 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
         return cursor; //cursor contient donc mtn toute la bdd
     }
 
-    void updateData(String rows_id, String qte){
+    void updateData(String rows_id, int qte){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_INGR,"test");
-        cv.put(COLUMN_TYPE, "test");
         cv.put(COLUMN_QTE, qte);
 
         long result = db.update(TABLE_NAME, cv,"_id=?", new String[]{rows_id});

@@ -20,8 +20,9 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
     ArrayList Nom_ingredient, quantite, type;
     Context context;
     Activity activity;
+    String unite,multipl;
 
-    MyAdapter_panier(Activity activity,Context ct, ArrayList Nom_ingredient, ArrayList quantite,ArrayList type){
+    MyAdapter_panier(Activity activity,Context ct, ArrayList Nom_ingredient, ArrayList quantite,ArrayList<String> type){
         context = ct;
         this.activity = activity;
         this.Nom_ingredient = Nom_ingredient;
@@ -40,7 +41,9 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyAdapter_panier.MyViewHolder holder, int position) {
         holder.titre_ing_txt.setText(String.valueOf(Nom_ingredient.get(position)));
-        holder.quantite_txt.setText(String.valueOf(quantite.get(position)));
+        mise_en_forme((String) type.get(position));
+        String Qte = multipl + quantite.get(position) + unite;
+        holder.quantite_txt.setText(Qte);
     }
 
     @Override
@@ -59,5 +62,30 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
             quantite_txt = itemView.findViewById(R.id.qte);
             layout_affichage_ing = itemView.findViewById(R.id.layout_affichage_ing);
         }
+    }
+    public void mise_en_forme(String ing_type){
+        unite="";
+        multipl = "";
+
+        if(ing_type.equals("liquide")){
+            unite="mL";
+        }//si l'ingrédient est un liquide
+
+        if(ing_type.equals("poids")){
+            unite="g";
+        }//si l'ingrédient se pese
+
+        if(ing_type.equals("pincée")){
+            unite="pincée";
+        }//si l'ingredient se compte en "pincée"
+
+        if(ing_type.equals("nombre")){
+            multipl="x";
+        }//si l'ingredient se compte en nombre d'ingredient
+
+        if(ing_type.equals("cuillière")){
+            unite=" cuillière";
+            multipl="x";
+        }//si l'ingredient se compte en cuillière
     }
 }
