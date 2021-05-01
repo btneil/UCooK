@@ -19,7 +19,8 @@ public class Ajout_ingredient extends AppCompatActivity {
     String composition;
     String [] Tab_Compo;
     private Button confirmer_btn;
-    ArrayList<String> ing_nom;
+    ArrayList<String> ing_nom,ing_qte;
+    String ing_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class Ajout_ingredient extends AppCompatActivity {
         getData();
         setData();
         ing_nom = new ArrayList<>();
+        ing_qte = new ArrayList<>();
         confirmer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +41,12 @@ public class Ajout_ingredient extends AppCompatActivity {
                     String [] Compo = Tab_Compo[i].split(" ");
                     if(Ingredient_deja_present(MyDB,Compo[0])==false){ //on test si l'ingrédient est déjà présent dans la bdd
                         MyDB.ajouter_rct(Compo[0],Compo[1],Compo[1]); //actuelleemnt, type inutile donc à enlever?
+                    }
+                    else{
+                        //ici il faut trouver l'ingredient deja present, puis ajouter la quantité souhaitée
+                        System.out.println(formatage_data(recup_ancienne_qte(MyDB,Compo[0])));
+                        int new_qte = Integer.parseInt(formatage_data(Compo[1]))+Integer.parseInt(formatage_data(recup_ancienne_qte(MyDB,Compo[0]))); //si qte = int dans la bdd -> + simple
+                        MyDB.updateData(ing_id,String.valueOf(new_qte));
                     }
 
                     i++;
@@ -55,6 +63,7 @@ public class Ajout_ingredient extends AppCompatActivity {
     private void getData(){
         if(getIntent().hasExtra("composition")){ // on vérifie que composition existe
             composition = getIntent().getStringExtra("composition");
+            ing_id = getIntent().getStringExtra("ing_id");
         }
         else{
             Toast.makeText(this,"Pas d'ingredient", Toast.LENGTH_SHORT).show();
@@ -78,11 +87,33 @@ public class Ajout_ingredient extends AppCompatActivity {
                 if(String.valueOf(ing_nom.get(i)).equals(Nom_ing)==true){
                     ingredient_deja_present=true;
                 }
-                    System.out.println(String.valueOf(ing_nom.get(i))+","+Nom_ing+","+ingredient_deja_present);
                 i++;
             }
         }
 
         return ingredient_deja_present;
+    }
+
+    private String recup_ancienne_qte(MyDataBase_panier MyDB, String Nom_ing){
+        String Qte="";
+        Cursor cursor = MyDB.readAllData();
+        if(cursor.getCount() != 0){
+            while(cursor.moveToNext()){
+                ing_nom.add(cursor.getString(1));
+                ing_qte.add(cursor.getString(2));
+            }
+            int i = 0;
+            while (i!=ing_nom.size()){
+                if(String.valueOf(ing_nom.get(i)).equals(Nom_ing)==true){
+                    return String.valueOf(ing_qte.get(i));
+                }
+                i++;
+            }
+        }
+        return "0";
+    }
+    public String formatage_data(String string){
+        String string2 = string.replace("x","").replace(" ","").replace("cuillière","").replace("pincée","").replace("mL","");
+        return string2;
     }
 }

@@ -22,7 +22,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
     private static final String COLUMN_QTE = "quantité";
 
 
-    public MyDataBase_panier(@Nullable Context context) {
+    MyDataBase_panier(@Nullable Context context) {
         super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
         this.context = context;
     }
@@ -33,7 +33,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_INGR + " TEXT, " +
                 COLUMN_TYPE + " TEXT, " +
-                COLUMN_QTE + " TEXT);"; //Declaration du SQL dans query, ATTENTION AUX ESPACES ! ! ! + BLOB comme type pour image?
+                COLUMN_QTE + " TEXT);"; //Declaration du SQL dans query, ATTENTION AUX ESPACES ! ! ! +Int plutot que string plus malin, mais pb??? à revoir
 
         db.execSQL(query);
 
@@ -73,19 +73,19 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
         return cursor; //cursor contient donc mtn toute la bdd
     }
 
-    void updateData(String rows_id, String ingredient, String type, String qte){
+    void updateData(String rows_id, String qte){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_INGR, ingredient);
-        cv.put(COLUMN_TYPE, type);
+        cv.put(COLUMN_INGR,"test");
+        cv.put(COLUMN_TYPE, "test");
         cv.put(COLUMN_QTE, qte);
 
         long result = db.update(TABLE_NAME, cv,"_id=?", new String[]{rows_id});
         if(result == -1){
-            Toast.makeText(context, "ECHEC DE LA MISE A JOUR", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "ECHEC DE L'AJOUT DE LA QTE", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(context, "SUCCES DE LA MISE A JOUR", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "SUCCES DE L'AJOUT DE QTE'", Toast.LENGTH_SHORT).show();
         }
 
     }

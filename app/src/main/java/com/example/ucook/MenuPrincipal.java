@@ -72,7 +72,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         Remplir_Liste_Recette();
 
-        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,Livre_rct);
+        MyAdapter myAdapter = new MyAdapter(MenuPrincipal.this,this,Livre_rct,rct_id);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

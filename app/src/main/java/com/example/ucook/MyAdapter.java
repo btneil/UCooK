@@ -22,10 +22,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<Integer> images = new ArrayList<Integer>();
     ArrayList<String> rct_inst = new ArrayList<String>();
     ArrayList<String> rct_ing = new ArrayList<String>();
+    ArrayList<String> id_liste = new ArrayList<>();
     Context context;
     Activity activity;
 
-    MyAdapter(Activity activity,Context ct, ListeDeRecettes Livre_rct){ //changement! plus de liste s1 et s2 mais uns liste de recette en entrée
+    MyAdapter(Activity activity, Context ct, ListeDeRecettes Livre_rct, ArrayList<String> id_liste){ //changement! plus de liste s1 et s2 mais uns liste de recette en entrée
         context = ct;
         this.activity = activity;
         int j=0;
@@ -35,6 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.rct_diff.add(Livre_rct.Liste.get(j).Difficulte);
             this.images.add(Livre_rct.Liste.get(j).Image);
             this.rct_inst.add(Livre_rct.Liste.get(j).Instructions);
+            this.id_liste = id_liste;
 
             //Comme ailleur, on adapte la liste d'ingrédient
             int i =0;
@@ -99,6 +101,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("images", Integer.valueOf(images.get(position)));
                 intent.putExtra("instructions", String.valueOf(rct_inst.get(position)));
                 intent.putExtra("ingredients", String.valueOf(rct_ing.get(position)));
+                intent.putExtra("ing_id",String.valueOf(id_liste.get(position)));
                 activity.startActivityForResult(intent,1);
             }
         });

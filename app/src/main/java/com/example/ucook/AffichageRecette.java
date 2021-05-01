@@ -26,7 +26,7 @@ public class AffichageRecette extends AppCompatActivity {
     TextView Ingredients_txt;
 
 
-    String data1, data2, instructions, ingredients;
+    String data1, data2, instructions, ingredients, ing_id;
     int images;
 
     private FloatingActionButton home_btn;
@@ -64,6 +64,7 @@ public class AffichageRecette extends AppCompatActivity {
             public void onClick(View v) {
                 Intent Ajout_Ing = new Intent(getApplicationContext(),Ajout_ingredient.class);
                 Ajout_Ing.putExtra("composition", ingredients);
+                Ajout_Ing.putExtra("ing_id", ing_id);
                 startActivity(Ajout_Ing);
                 finish();
             }
@@ -78,6 +79,7 @@ public class AffichageRecette extends AppCompatActivity {
             images = getIntent().getIntExtra("images",1);
             instructions = getIntent().getStringExtra("instructions");
             ingredients = getIntent().getStringExtra("ingredients");
+            ing_id = getIntent().getStringExtra("ing_id");
         }
         else{
             Toast.makeText(this,"No data.", Toast.LENGTH_SHORT).show();
