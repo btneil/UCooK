@@ -27,20 +27,35 @@
             android:layout_height="51dp"
             android:fontFamily="@font/vollkornsc_regular"
             android:text="Ingrédient: "
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
 
         <TextView
             android:id="@+id/qte"
             android:layout_width="80dp"
             android:layout_height="36dp"
-            android:gravity="center"
             android:fontFamily="@font/vollkornsc_regular"
+            android:gravity="center"
             android:text="Qte: "
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/titre_ing"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/titre_ing"
-            app:layout_constraintTop_toTopOf="@+id/titre_ing" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Supp_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vollkornsc_bold"
+            android:rotation="30"
+            android:text=""
+            android:textColor="#991218"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/qte"
+            app:layout_constraintEnd_toEndOf="@+id/titre_ing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/qte" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

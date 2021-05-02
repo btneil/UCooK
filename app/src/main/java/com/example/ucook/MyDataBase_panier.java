@@ -87,4 +87,15 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
         }
 
     }
+
+    void Supp_1_item(String id_item){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME,"_id=?", new String[]{id_item});
+        if (result == -1){
+            Toast.makeText(context,"Echec de la supressio,", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context,"Supprimé avec succès", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

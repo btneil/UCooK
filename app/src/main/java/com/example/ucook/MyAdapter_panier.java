@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,17 +18,18 @@ import java.util.ArrayList;
 
 public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyViewHolder>{
 
-    ArrayList Nom_ingredient, quantite, type;
+    ArrayList Nom_ingredient, quantite, type, id;
     Context context;
     Activity activity;
     String unite,multipl;
 
-    MyAdapter_panier(Activity activity,Context ct, ArrayList Nom_ingredient, ArrayList quantite,ArrayList<String> type){
+    MyAdapter_panier(Activity activity,Context ct, ArrayList Nom_ingredient, ArrayList quantite,ArrayList<String> type,ArrayList id){
         context = ct;
         this.activity = activity;
         this.Nom_ingredient = Nom_ingredient;
         this.quantite = quantite;
         this.type = type;
+        this.id = id;
     }
 
     @NonNull
@@ -44,6 +46,15 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
         mise_en_forme((String) type.get(position));
         String Qte = multipl + quantite.get(position) + unite;
         holder.quantite_txt.setText(Qte);
+        holder.titre_ing_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDataBase_panier MyDB = new MyDataBase_panier(context);
+                MyDB.Supp_1_item(String.valueOf(id.get(position)));
+                holder.quantite_txt.setText("0");
+                holder.Supp_txt.setText("Supprimé");
+            }
+        });
     }
 
     @Override
@@ -53,7 +64,8 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView titre_ing_txt, quantite_txt;
+        CheckBox titre_ing_txt;
+        TextView quantite_txt,Supp_txt;
         ConstraintLayout layout_affichage_ing;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -61,6 +73,7 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
             titre_ing_txt = itemView.findViewById(R.id.titre_ing);
             quantite_txt = itemView.findViewById(R.id.qte);
             layout_affichage_ing = itemView.findViewById(R.id.layout_affichage_ing);
+            Supp_txt = itemView.findViewById(R.id.Supp_txt);
         }
     }
     public void mise_en_forme(String ing_type){

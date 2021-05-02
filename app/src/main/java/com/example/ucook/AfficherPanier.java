@@ -36,7 +36,7 @@ public class AfficherPanier extends AppCompatActivity {
         MyDB = new MyDataBase_panier(AfficherPanier.this);
         displayData();
 
-        MyAdapter_panier myAdapter = new MyAdapter_panier(AfficherPanier.this,this,ing_nom,ing_qte,ing_type);
+        MyAdapter_panier myAdapter = new MyAdapter_panier(AfficherPanier.this,this,ing_nom,ing_qte,ing_type,ing_id);
         recyclerView_panier.setAdapter(myAdapter);
         recyclerView_panier.setLayoutManager(new LinearLayoutManager(this));
 
