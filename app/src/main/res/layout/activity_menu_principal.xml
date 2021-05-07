@@ -6,36 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MenuPrincipal"
     android:background="@color/couleur_fond">
-
-    <TextView
-        android:id="@+id/Livre_recette"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/vollkornsc_regular"
-        android:gravity="top"
-        android:textColor="@color/black"
-        android:text="@string/Livre_recette"
-        android:textSize="40dp"
+        android:layout_height="130dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/livre_de_recette_titre"
+        tools:layout_editor_absoluteY="-20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="401dp"
-        android:layout_height="599dp"
+        android:layout_width="402dp"
+        android:layout_height="608dp"
         android:layout_margin="10dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="10dp"
         android:background="@color/couleur_fond"
         android:fontFamily="@font/vollkornsc_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Livre_recette" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/home_btn"
@@ -52,6 +45,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="48dp"
         app:srcCompat="@drawable/ic_home" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

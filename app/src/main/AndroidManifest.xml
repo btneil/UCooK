@@ -11,7 +11,7 @@
         android:theme="@style/Theme.UCooK">
         <activity android:name=".Ajout_ingredient"></activity>
         <activity android:name=".AfficherPanier" />
-        <activity android:name=".AddActivity" />
+        <activity android:name=".Ajouter_Recette" />
         <activity android:name=".MenuPrincipal" />
         <activity
             android:name=".AffichageRecette"

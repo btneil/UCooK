@@ -8,10 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.google.gson.Gson;
-
-import java.util.Scanner;
-
 public class MainActivity extends AppCompatActivity {
 
 
@@ -59,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Ajouter_rct_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                Intent intent = new Intent(MainActivity.this, Ajouter_Recette.class);
                 startActivity(intent);
             }
         });

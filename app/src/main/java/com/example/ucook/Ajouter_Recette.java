@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
-public class AddActivity extends AppCompatActivity {
+public class Ajouter_Recette extends AppCompatActivity {
 
 
     EditText titre_rct, diff_rct, ing_rct, tmps_rct, instructions_rct, photo_rct;
@@ -20,7 +20,7 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_ajouter_recette);
 
         titre_rct = findViewById(R.id.titre_rct);
         diff_rct = findViewById(R.id.diff_rct);
@@ -29,8 +29,6 @@ public class AddActivity extends AppCompatActivity {
         instructions_rct = findViewById(R.id.instructions);
         photo_rct = findViewById(R.id.photo_rct);
 
-        Recette Rct = new Recette(titre_rct.getText().toString(),instructions_rct.getText().toString(),diff_rct.getText().toString(),
-                tmps_rct.getText().toString(),1,R.drawable.banane_plantain,Tab_compo_ign); //nbp fixé à 1, à changer?
         add_btn = findViewById(R.id.add_btn);
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,9 +43,9 @@ public class AddActivity extends AppCompatActivity {
                     i++;
                 }//si tout s'est bien passé, Tab_compo_ign est maintenant rempli de compo (ingredient+quantité)
                 Recette Rct = new Recette(titre_rct.getText().toString(),instructions_rct.getText().toString(),diff_rct.getText().toString(),
-                        tmps_rct.getText().toString(),1,R.drawable.banane_plantain,Tab_compo_ign); //nbp fixé à 1, à changer?
+                        tmps_rct.getText().toString(),1,R.drawable.image_defaut,Tab_compo_ign); //nbp fixé à 1, à changer?
 
-                MyDataBase myDB = new MyDataBase(AddActivity.this);
+                MyDataBase myDB = new MyDataBase(Ajouter_Recette.this);
                 myDB.ajouter_rct(Rct); //on converti chaque champs pour qu'ils correspondent à ceux attendus
             }
         });
