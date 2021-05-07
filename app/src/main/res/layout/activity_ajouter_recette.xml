@@ -5,95 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/couleur_fond_fenetre"
-    android:padding="30dp"
+    android:padding="10dp"
     tools:context=".Ajouter_Recette">
 
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="398dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="4dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/vollkornsc_regular"
         android:text="Ajout d'une recette"
-        android:textSize="40dp"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
-    <ImageView
-        android:id="@+id/image_rct"
-        android:layout_width="117dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/photo_rct"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/pokebowl" />
-
-    <EditText
-        android:id="@+id/photo_rct"
-        android:layout_width="168dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="128dp"
-        android:fontFamily="@font/vollkornsc_regular"
-        android:text="R.drawable.pokebowl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/titre_rct"
         android:layout_width="317dp"
         android:layout_height="40dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:fontFamily="@font/vollkornsc_regular"
         android:inputType="textPersonName"
-        android:text="@string/Nom"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_rct" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/ing_rct"
         android:layout_width="317dp"
         android:layout_height="41dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/vollkornsc_regular"
         android:inputType="textPersonName"
-        android:text="Tomates/nombre/5, Avocat/nombre/2, Huile/liquide/150"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/titre_rct"
         app:layout_constraintTop_toBottomOf="@+id/titre_rct" />
 
     <EditText
         android:id="@+id/instructions"
         android:layout_width="316dp"
         android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/vollkornsc_regular"
         android:inputType="textLongMessage"
-        android:text="Instructions:"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ing_rct"
         app:layout_constraintTop_toBottomOf="@+id/ing_rct" />
 
     <EditText
         android:id="@+id/tmps_rct"
         android:layout_width="316dp"
         android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/vollkornsc_regular"
         android:inputType="number"
-        android:text="@string/Tps"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/instructions"
         app:layout_constraintTop_toBottomOf="@+id/instructions">
 
     </EditText>
@@ -102,29 +76,87 @@
         android:id="@+id/diff_rct"
         android:layout_width="316dp"
         android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/vollkornsc_regular"
         android:inputType="text"
-        android:text="Difficulté: "
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tmps_rct"
         app:layout_constraintTop_toBottomOf="@+id/tmps_rct">
 
     </EditText>
 
     <Button
         android:id="@+id/add_btn"
-        android:layout_width="361dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="588dp"
+        android:layout_width="238dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/vollkornsc_regular"
         android:text="@string/Bt_confirmer"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/diff_rct" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/vollkornsc_regular"
+        android:text="Nom de la recette:"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/titre_rct"
+        app:layout_constraintStart_toStartOf="@+id/titre_rct" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/vollkornsc_regular"
+        android:text="@string/Ingrédient"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/ing_rct"
+        app:layout_constraintStart_toStartOf="@+id/ing_rct" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/vollkornsc_regular"
+        android:text="Instructions: "
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/instructions"
+        app:layout_constraintStart_toStartOf="@+id/instructions" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/vollkornsc_regular"
+        android:text="Temps de préparation: "
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/tmps_rct"
+        app:layout_constraintStart_toStartOf="@+id/tmps_rct" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/vollkornsc_regular"
+        android:text="Difficulté: "
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/diff_rct"
+        app:layout_constraintStart_toStartOf="@+id/diff_rct" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
