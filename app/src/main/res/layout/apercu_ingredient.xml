@@ -10,6 +10,7 @@
         android:id="@+id/layout_compo"
         android:layout_width="330dp"
         android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,24 +20,25 @@
             android:id="@+id/composition_txt"
             android:layout_width="260dp"
             android:layout_height="70dp"
-            android:layout_marginStart="18dp"
-            android:gravity="center_vertical"
-            android:textSize="15dp"
             android:fontFamily="@font/vollkornsc_regular"
+            android:gravity="center_vertical"
             android:text="Ingredient:Mascarpone\nQte: 10cL"
+            android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="28dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/composition_txt"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/composition_txt"
-            app:layout_constraintTop_toTopOf="@+id/composition_txt" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="•"
+            android:textSize="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/composition_txt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

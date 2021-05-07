@@ -2,6 +2,7 @@ package com.example.ucook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,8 @@ public class Ajouter_Recette extends AppCompatActivity {
                             tmps_rct.getText().toString(),1,R.drawable.image_defaut,Tab_compo_ign); //nbp fixé à 1, à changer?
                     MyDataBase myDB = new MyDataBase(Ajouter_Recette.this);
                     myDB.ajouter_rct(Rct); //on converti chaque champs pour qu'ils correspondent à ceux attendus
+                    Intent retour = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(retour);
                 }
             }
         });

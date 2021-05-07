@@ -97,7 +97,7 @@ public class AffichageRecette extends AppCompatActivity {
             ing_type = ing_type + "!" + ingredients.split("!")[i+1];
             i=i+2;
         }
-        Ingredients_txt.setText(ing_txt);
+        Ingredients_txt.setText(ing_txt.replace("_"," "));
 
     }
 }

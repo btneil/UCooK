@@ -119,7 +119,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }//si l'ingrédient se pese
 
         if(test.equals("pincée")){
-            unite="pincée";
+            unite=" pincée";
         }//si l'ingredient se compte en "pincée"
 
         if(test.equals("nombre")){
@@ -130,5 +130,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             unite=" cuillière";
             multipl="x";
         }//si l'ingredient se compte en cuillière
+        if(test.equals(" botte")){
+            unite=" botte(s)";
+        }
+        if(test.equals("poignée")){
+            unite=" poignée(s)";
+        }
     }
 }

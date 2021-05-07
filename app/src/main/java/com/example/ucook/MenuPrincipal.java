@@ -88,7 +88,8 @@ public class MenuPrincipal extends AppCompatActivity {
     void displayData(){
         Cursor cursor = myDB.readAllData(); //contient toutes les données de la bdd
         if(cursor.getCount() == 0){
-            Toast.makeText(this, "Pas de Recette", Toast.LENGTH_SHORT).show();
+            myDB.initialiser_bdd();
+            Toast.makeText(this, "A votre cuisine!", Toast.LENGTH_SHORT).show();
         }
         else{
             while(cursor.moveToNext()){

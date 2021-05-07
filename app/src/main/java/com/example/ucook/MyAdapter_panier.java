@@ -42,7 +42,7 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter_panier.MyViewHolder holder, int position) {
-        holder.titre_ing_txt.setText(String.valueOf(Nom_ingredient.get(position)));
+        holder.titre_ing_txt.setText(String.valueOf(Nom_ingredient.get(position)).replace("_"," "));
         mise_en_forme((String) type.get(position));
         String Qte = multipl + quantite.get(position) + unite;
         holder.quantite_txt.setText(Qte);
@@ -100,5 +100,11 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
             unite=" cuillière";
             multipl="x";
         }//si l'ingredient se compte en cuillière
+        if(ing_type.equals("botte")){
+            unite=" botte(s)";
+        }
+        if(ing_type.equals("poignée")){
+            unite="poignée(s)";
+        }
     }
 }

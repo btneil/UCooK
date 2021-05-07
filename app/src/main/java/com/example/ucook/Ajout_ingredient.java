@@ -42,7 +42,7 @@ public class Ajout_ingredient extends AppCompatActivity {
                     String [] Compo = Tab_Compo[i].split(" ");
                     if(Ingredient_deja_present(MyDB,Compo[0])==false){ //on test si l'ingrédient est déjà présent dans la bdd
                         System.out.println(ing_type);
-                        MyDB.ajouter_rct(Compo[0],ing_type.split("!")[i+1],Integer.parseInt(formatage_data(Compo[1]))); //actuelleemnt, type inutile donc à enlever?
+                        MyDB.ajouter_rct(Compo[0],ing_type.split("!")[i+1],Integer.parseInt(formatage_data(Compo[1])));
                     }
                     else{
                         //ici il faut trouver l'ingredient deja present, puis ajouter la quantité souhaitée
