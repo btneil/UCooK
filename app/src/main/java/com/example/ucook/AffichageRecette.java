@@ -24,9 +24,10 @@ public class AffichageRecette extends AppCompatActivity {
     TextView text_diff;
     TextView instructions_txt;
     TextView Ingredients_txt;
+    TextView tmps_rct_txt;
 
 
-    String data1, data2, instructions, ingredients,ing_type, ing_txt;
+    String data1, data2, instructions, ingredients,ing_type, ing_txt, temps_rct;
     int images;
 
     private FloatingActionButton home_btn;
@@ -42,6 +43,7 @@ public class AffichageRecette extends AppCompatActivity {
         image_affichage_recette = findViewById(R.id.image_affichage_recette);
         instructions_txt = findViewById(R.id.instructions_txt);
         Ingredients_txt = findViewById(R.id.Ingredients_txt);
+        tmps_rct_txt = findViewById(R.id.tmps_rct_txt);
 
 
         getData(); //ces 2 méthodes font passer les infos d'une activité à l'autre
@@ -79,6 +81,7 @@ public class AffichageRecette extends AppCompatActivity {
             images = getIntent().getIntExtra("images",1);
             instructions = getIntent().getStringExtra("instructions");
             ingredients = getIntent().getStringExtra("ingredients");
+            temps_rct = getIntent().getStringExtra("temps");
         }
         else{
             Toast.makeText(this,"No data.", Toast.LENGTH_SHORT).show();
@@ -89,6 +92,7 @@ public class AffichageRecette extends AppCompatActivity {
         text_diff.setText(data2);
         image_affichage_recette.setImageResource(images);
         instructions_txt.setText(instructions);
+        tmps_rct_txt.setText(temps_rct+" min");
         ing_type = "";
         int i = 0;
         ing_txt = "";

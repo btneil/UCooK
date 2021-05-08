@@ -23,6 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<String> rct_inst = new ArrayList<String>();
     ArrayList<String> rct_ing = new ArrayList<String>();
     ArrayList<String> id_liste = new ArrayList<>();
+    ArrayList<String> rct_tmps = new ArrayList<>();
     Context context;
     Activity activity;
     String unite,multipl;
@@ -38,6 +39,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.images.add(Livre_rct.Liste.get(j).Image);
             this.rct_inst.add(Livre_rct.Liste.get(j).Instructions);
             this.id_liste = id_liste;
+            this.rct_tmps.add(Livre_rct.Liste.get(j).Temps);
 
             //Comme ailleur, on adapte la liste d'ingrédient
             int i =0;
@@ -71,6 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.rct_titre_txt.setText(String.valueOf(rct_titre.get(position)));
         holder.rct_diff_txt.setText(String.valueOf(rct_diff.get(position)));
+        holder.Temps_prepa.setText(String.valueOf(rct_tmps.get(position)) + " min");
         holder.myImage.setImageResource(images.get(position));
         holder.layout_affichage_recette.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +84,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("images", Integer.valueOf(images.get(position)));
                 intent.putExtra("instructions", String.valueOf(rct_inst.get(position)));
                 intent.putExtra("ingredients", String.valueOf(rct_ing.get(position)));
+                intent.putExtra("temps",String.valueOf(rct_tmps.get(position)));
                 activity.startActivityForResult(intent,1);
             }
         });
@@ -94,7 +98,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView rct_titre_txt, rct_diff_txt;
+        TextView rct_titre_txt, rct_diff_txt, Temps_prepa;
         ImageView myImage;
         ConstraintLayout layout_affichage_recette;
 
@@ -102,6 +106,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             super(itemView);
             rct_titre_txt = itemView.findViewById(R.id.titre_recette_txt);
             rct_diff_txt = itemView.findViewById(R.id.description_txt);
+            Temps_prepa = itemView.findViewById(R.id.Temps_prepa);
             myImage = itemView.findViewById(R.id.image_recette);
             layout_affichage_recette = itemView.findViewById(R.id.layout_affichage_recette);
         }

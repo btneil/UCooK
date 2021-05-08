@@ -6,34 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".MenuPrincipal"
     android:background="@color/couleur_fond">
-    <ImageView
-        android:id="@+id/imageView2"
+
+    <TextView
+        android:id="@+id/Livre_recette"
         android:layout_width="wrap_content"
-        android:layout_height="130dp"
-        android:scaleType="fitXY"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/vollkornsc_regular"
+        android:gravity="top"
+        android:textColor="@color/black"
+        android:text="@string/Livre_recette"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/livre_de_recette_titre"
-        tools:layout_editor_absoluteY="-20dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="402dp"
-        android:layout_height="608dp"
+        android:layout_width="401dp"
+        android:layout_height="599dp"
         android:layout_margin="10dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="10dp"
         android:background="@color/couleur_fond"
         android:fontFamily="@font/vollkornsc_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Livre_recette" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/home_btn"
         android:layout_width="105dp"
         android:layout_height="187dp"
+        android:layout_marginBottom="5dp"
         android:clickable="true"
         android:outlineSpotShadowColor="@color/black"
         android:scaleType="fitXY"
@@ -45,8 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="48dp"
         app:srcCompat="@drawable/ic_home" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

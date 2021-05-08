@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:fontFamily="@font/vollkornsc_regular"
-        android:text="Sélectionnez les recettes à ajouter: "
+        android:text="Ajouter ces ingrédients au panier?"
         app:layout_constraintBottom_toTopOf="@+id/recyclerview_Ing"
         app:layout_constraintStart_toStartOf="@+id/recyclerview_Ing"
         app:layout_constraintTop_toBottomOf="@+id/titre" />
