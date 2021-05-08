@@ -15,7 +15,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATA_BASE_NAME ="Liste_de_recettes";
-    private static final int DATA_BASE_VERSION =9;
+    private static final int DATA_BASE_VERSION =11;
 
     private static final String TABLE_NAME = "mon_livre";
     private static final String COLUMN_ID = "_id";
@@ -25,7 +25,6 @@ public class MyDataBase extends SQLiteOpenHelper {
     private static final String COLUMN_TEMPS = "temps";
     private static final String COLUMN_IMG = "images";
     private static final String COLUMN_INST = "instructions";
-    private static final String COLUMN_NB_PERSONNES = "nb_personnes";
 
 
     public MyDataBase(@Nullable Context context) {
@@ -117,6 +116,9 @@ public class MyDataBase extends SQLiteOpenHelper {
     }
 
     void initialiser_bdd(){ //on initialise la bdd
+
+        //Ingredients dont on a besoin
+
         Ingredient huile_dolive = new Ingredient("huile_d'olive","cuillière");
         Ingredient sel = new Ingredient("sel","pincée(s)");
         Ingredient citron = new Ingredient("citron(s)","nombre");
@@ -125,6 +127,49 @@ public class MyDataBase extends SQLiteOpenHelper {
         Ingredient oignons_v = new Ingredient("oignons_verts","nombre");
         Ingredient menthe = new Ingredient("menthe","botte");
         Ingredient Boulgour_b = new Ingredient("boulgour_brun","poignée");
+
+        Ingredient oigons = new Ingredient("oigons","nombre");
+        Ingredient pt_brisee = new Ingredient("rouleaux_de_pâte_brisée","rouleau");
+        Ingredient cumin = new Ingredient("cumin","cuillière");
+        Ingredient conce_totmates = new Ingredient("concentré_de_tomates","cuillière");
+        Ingredient oeuf_dur = new Ingredient("oeufs_durs","nombre");
+        Ingredient j_oeuf = new Ingredient("jaune_d'oeuf","nombre");
+        Ingredient boeuf_h = new Ingredient("boeuf_haché","poids");
+        Ingredient paprika = new Ingredient("paprika","cuillière");
+        Ingredient p_piment = new Ingredient("purée_de_piment","cuillière");
+        Ingredient sucre = new Ingredient("sucre","cuillière");
+        Ingredient bouillon_boeuf = new Ingredient("cube_de_bouillon_de_boeuf","cube");
+
+        //Creation Empanadas
+
+        ArrayList<Composition> Compo_Empanadas  = new ArrayList<>();
+        Compo_Empanadas.add(new Composition(oigons,2));
+        Compo_Empanadas.add(new Composition(pt_brisee,2));
+        Compo_Empanadas.add(new Composition(cumin,1));
+        Compo_Empanadas.add(new Composition(conce_totmates,8));
+        Compo_Empanadas.add(new Composition(oeuf_dur,3));
+        Compo_Empanadas.add(new Composition(huile_dolive,2));
+        Compo_Empanadas.add(new Composition(j_oeuf,1));
+        Compo_Empanadas.add(new Composition(boeuf_h,500));
+        Compo_Empanadas.add(new Composition(paprika,1));
+        Compo_Empanadas.add(new Composition(p_piment,1/2));
+        Compo_Empanadas.add(new Composition(sucre,1));
+        Compo_Empanadas.add(new Composition(bouillon_boeuf,1/2));
+
+        //création recette Empanadas
+
+        Recette Empanadas = new Recette("Empanadas","Pelez et émincez les oignons. Dénoyautez les olives et hachez-les grossièrement au couteau. Écalez les œufs durs et hachez-les également.\n" +
+                "Faites chauffer l'huile dans une poêle pour faire revenir les oignons émincés à feu vif pendant 3-4 minutes. Ajoutez la viande de bœuf hachée et poursuivez la cuisson 5 minutes en remuant avec une spatule ou une cuillère en bois. Ajoutez le concentré de tomates et le sucre. Mélangez 2 minutes à feu toujours vif avant de réserver la viande dans un saladier." +
+                "\nAjoutez le bouillon de bœuf et les épices à ce mélange ainsi que les olives et les œufs durs hachés. Salez et poivrez. Laissez refroidir avant de filmer et de réserver. Si vous pouvez prévoir à l'avance, faites la farce la veille et laissez-la reposer une nuit au frais, elle sera plus savoureuse et parfumée.\n" +
+                "Sortez la farce de vos empanadas du réfrigérateur pour qu'elle revienne à température ambiante. Préchauffez le four th.6-7 (200°).\n" +
+                "Étalez la pâte et détaillez des cercles d'environ 15 centimètres de diamètre avec un emporte-pièce ou bien un bol. Étalez avec le doigt ou au pinceau du blanc d’œuf sur la bordure du cercle de pâte pour mieux souder le chausson. Déposez une bonne cuillère à soupe de farce sur la moitié de la pâte et refermez " +
+                "le chausson en demi-lune en appuyant bien sur les bords. Vous pouvez festonner la bordure avec la fourchette.\n"+
+                "Recouvrez la plaque du four avec du papier sulfurisé, déposez les empanadas facile et badigeonnez-les au pinceau de cuisine avec du jaune d'oeuf battu avec le lait." +
+                "\nEnfournez pour 20 à 25 minutes selon votre four. Les empanadas doivent être dorés. Vous pouvez servir ces empanadas à la viande chauds ou bien froids, accompagnés par exemple d'une salade de saison.\n",
+                "Facile","56",6,R.drawable.empanadas,Compo_Empanadas);
+
+        //Creation LIste Compo Vrai tab. libanais
+
         ArrayList<Composition> Compo_V_lib = new ArrayList<>();
         Compo_V_lib.add(new Composition(sel,2));
         Compo_V_lib.add(new Composition(huile_dolive,3));
@@ -135,6 +180,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         Compo_V_lib.add(new Composition(menthe,1));
         Compo_V_lib.add(new Composition(Boulgour_b,1));
 
+        //Creation Recette Vrai tab. libanais
 
         Recette Vrai_tab_libanais = new Recette("Le vrai taboulé libanais",
                 "Avant de commencer mettre une poignée de boulghour dans un bol d'eau pendant 15 mn et laisser ramollir.\n" +
@@ -154,5 +200,6 @@ public class MyDataBase extends SQLiteOpenHelper {
                         "L'aspect du taboulé doit être brillant, pour indiquer qu'il y a suffisamment d'huile d'olive.",
                 "Facile","25",5,R.drawable.le_v_tb_libanais,Compo_V_lib);
         ajouter_rct(Vrai_tab_libanais);
+        ajouter_rct(Empanadas);
     }
 }

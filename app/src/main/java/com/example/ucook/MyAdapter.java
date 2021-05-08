@@ -116,11 +116,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         multipl = "";
 
         if(test.equals("liquide")){
-            unite="mL";
+            unite=" mL";
         }//si l'ingrédient est un liquide
 
         if(test.equals("poids")){
-            unite="g";
+            unite=" g";
         }//si l'ingrédient se pese
 
         if(test.equals("pincée")){

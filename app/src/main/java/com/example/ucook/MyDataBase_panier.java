@@ -13,7 +13,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATA_BASE_NAME ="Panier";
-    private static final int DATA_BASE_VERSION =14;
+    private static final int DATA_BASE_VERSION =15;
 
     private static final String TABLE_NAME = "ma_liste";
     private static final String COLUMN_ID = "_id";
@@ -57,9 +57,6 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
         if (result==-1){ // si l'appli échoue
             Toast.makeText(context, "Une erreur c'est produite", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(context, "Ajouté avec succès", Toast.LENGTH_SHORT).show();
-        }
     }
 
     Cursor readAllData(){
@@ -82,17 +79,13 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
         if(result == -1){
             Toast.makeText(context, "ECHEC DE L'AJOUT DE LA QTE", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(context, "SUCCES DE L'AJOUT DE QTE'", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     void Supp_1_item(String id_item){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME,"_id=?", new String[]{id_item});
         if (result == -1){
-            Toast.makeText(context,"Echec de la supressio,", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Echec de la supression", Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(context,"Supprimé avec succès", Toast.LENGTH_SHORT).show();

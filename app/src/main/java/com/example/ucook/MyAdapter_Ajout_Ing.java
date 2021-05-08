@@ -38,8 +38,7 @@ public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_In
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter_Ajout_Ing.MyViewHolder holder, int position) {
-        holder.composition_txt.setText("Nom ingrédient: "+Tab_compo[position].split(" ")[0]+"\n"+"Qte: "+Tab_compo[position].split(" ")[1]);
-        holder.composition_txt.setTextColor(-7829368);
+        holder.composition_txt.setText("Nom ingrédient: "+Tab_compo[position].split(" ")[0].replace("_"," ")+"\n"+"Qte: "+Tab_compo[position].split(" ")[1]);
     }
 
     @Override
@@ -51,7 +50,6 @@ public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_In
 
         TextView composition_txt;
         ConstraintLayout layout_compo;
-        CheckBox checkBox;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
