@@ -25,21 +25,6 @@ public class MenuPrincipal extends AppCompatActivity {
     ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst, rct_nb_personnes, rct_image;
     ListeDeRecettes Livre_rct = new ListeDeRecettes();
 
-    ArrayList s1;
-    int images[] = {R.drawable.banane_plantain,R.drawable.daube_carotte,
-                R.drawable.galette_des_rois,R.drawable.gateau_choco,R.drawable.gnocci,
-                R.drawable.pdt_hasselback,R.drawable.poivron_farci,R.drawable.pokebowl,
-                R.drawable.salade_nicoise,R.drawable.tomate_provencale,R.drawable.lasagne,
-                R.drawable.lasagne,R.drawable.carotte,R.drawable.lasagne,
-                R.drawable.carotte,R.drawable.lasagne,R.drawable.carotte,
-                R.drawable.lasagne,R.drawable.carotte,R.drawable.lasagne,
-                R.drawable.carotte,R.drawable.lasagne,R.drawable.carotte,
-                R.drawable.lasagne,R.drawable.carotte,R.drawable.lasagne,
-                R.drawable.carotte,R.drawable.lasagne,R.drawable.carotte,
-                R.drawable.lasagne,R.drawable.carotte,R.drawable.lasagne};
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +73,7 @@ public class MenuPrincipal extends AppCompatActivity {
     void displayData(){
         Cursor cursor = myDB.readAllData(); //contient toutes les données de la bdd
         if(cursor.getCount() == 0){
-            myDB.initialiser_bdd();
+            myDB.initialiser_bdd(); //initialise la bdd au premier lancement de l'application
             Intent Retour_ecran_acc = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(Retour_ecran_acc);
             finish();
@@ -101,13 +86,8 @@ public class MenuPrincipal extends AppCompatActivity {
                 rct_ing.add(cursor.getString(3));
                 rct_tmps.add(cursor.getString(4));
                 rct_inst.add(cursor.getString(6)); // /!\ colonne 6 pas 5 (ordre colonne bdd) /!\
-                rct_image.add(cursor.getString(5)); //colonne à rajouter dans bdd
+                rct_image.add(cursor.getString(5));
                 System.out.print("Dans la while");
-
-
-                //Recette rct_id = new Recette(); // idéalement, il faudrait ajouter dans une liste de recette (objet)
-                // des recettes crééent à partir des parametres ci-dessus. On pourrait alors y accéder plus facilement, et l'affichage serait plus simple
-                //sinon on peut tjs essayer de "cacher" l'info qqpart dans l'apercu de la recette pour les récupérer dans son affichage
 
             }
         }

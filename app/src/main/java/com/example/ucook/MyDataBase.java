@@ -152,9 +152,9 @@ public class MyDataBase extends SQLiteOpenHelper {
         Compo_Empanadas.add(new Composition(j_oeuf,1));
         Compo_Empanadas.add(new Composition(boeuf_h,500));
         Compo_Empanadas.add(new Composition(paprika,1));
-        Compo_Empanadas.add(new Composition(p_piment,1/2));
+        Compo_Empanadas.add(new Composition(p_piment,1));
         Compo_Empanadas.add(new Composition(sucre,1));
-        Compo_Empanadas.add(new Composition(bouillon_boeuf,1/2));
+        Compo_Empanadas.add(new Composition(bouillon_boeuf,1));
 
         //création recette Empanadas
 
