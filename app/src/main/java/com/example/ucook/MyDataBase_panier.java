@@ -13,7 +13,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATA_BASE_NAME ="Panier";
-    private static final int DATA_BASE_VERSION =17;
+    private static final int DATA_BASE_VERSION =18;
     private static final String TABLE_NAME = "ma_liste";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_INGR = "ingrédient";
