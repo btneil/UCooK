@@ -15,8 +15,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATA_BASE_NAME ="Liste_de_recettes";
-    private static final int DATA_BASE_VERSION =11;
-
+    private static final int DATA_BASE_VERSION =13;
     private static final String TABLE_NAME = "mon_livre";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "titre_rct";
@@ -73,7 +72,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         String TabCompoTxt=TabCompoTransition.substring(0,TabCompoTransition.length()-1); //on enlève la dernière virgule, et voila le String des ing/type/qtt
 
         cv.put(COLUMN_ING, TabCompoTxt); // liste ingredient au format String
-        cv.put(COLUMN_TEMPS, Rct.Temps);
+        cv.put(COLUMN_TEMPS, Rct.Temps); //on ajoute les champs dans la bdd
         cv.put(COLUMN_IMG, Rct.Image);
         cv.put(COLUMN_INST, Rct.Instructions);
         long result = db.insert(TABLE_NAME,null, cv);
@@ -96,7 +95,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         return cursor; //cursor contient donc mtn toute la bdd
     }
 
-    void updateData(String rows_id, String titre, String diff, String Ing, int tmps, String instructions){
+    void updateData(String rows_id, String titre, String diff, String Ing, int tmps, String instructions){ //si implementation de la modification ou suppression de recette
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TITLE, titre);

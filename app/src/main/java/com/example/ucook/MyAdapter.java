@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> { //permet de remplir l'affichage de e liste de recette
 
     ArrayList<String> rct_titre = new ArrayList<String>();
     ArrayList<String> rct_diff = new ArrayList<String>();
@@ -34,7 +34,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         int j=0;
         while(j!=Livre_rct.Liste.size()){
             this.rct_titre.add(Livre_rct.Liste.get(j).Nom);
-            System.out.println(rct_titre);
             this.rct_diff.add(Livre_rct.Liste.get(j).Difficulte);
             this.images.add(Livre_rct.Liste.get(j).Image);
             this.rct_inst.add(Livre_rct.Liste.get(j).Instructions);
@@ -79,7 +78,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AffichageRecette.class);
-                intent.putExtra("rct_titre", String.valueOf(rct_titre.get(position)));
+                intent.putExtra("rct_titre", String.valueOf(rct_titre.get(position))); //On envoie les données vers affichage de la recette si on clique sur un des items
                 intent.putExtra("rct_diff", String.valueOf(rct_diff.get(position)));
                 intent.putExtra("images", Integer.valueOf(images.get(position)));
                 intent.putExtra("instructions", String.valueOf(rct_inst.get(position)));
@@ -111,7 +110,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             layout_affichage_recette = itemView.findViewById(R.id.layout_affichage_recette);
         }
     }
-    public void mise_en_forme(String test){
+    public void mise_en_forme(String test){ //mise en forme du texte des ingrédients
         unite="";
         multipl = "";
 

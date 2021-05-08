@@ -42,7 +42,7 @@ public class AfficherPanier extends AppCompatActivity {
 
         this.home_btn_panier=findViewById(R.id.home_btn_panier);
 
-        home_btn_panier.setOnClickListener(new View.OnClickListener() {
+        home_btn_panier.setOnClickListener(new View.OnClickListener() { //bouton retour menu principal
             @Override
             public void onClick(View v) {
                 Intent Retour_menu = new Intent(getApplicationContext(), MainActivity.class);

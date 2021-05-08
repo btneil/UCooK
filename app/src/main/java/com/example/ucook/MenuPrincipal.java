@@ -22,7 +22,7 @@ public class MenuPrincipal extends AppCompatActivity {
     RecyclerView recyclerView;
 
     MyDataBase myDB;
-    ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst, rct_nb_personnes, rct_image;
+    ArrayList<String> rct_id, rct_titre, rct_diff, rct_ing, rct_tmps, rct_inst, rct_image;
     ListeDeRecettes Livre_rct = new ListeDeRecettes();
 
     @Override
@@ -95,7 +95,7 @@ public class MenuPrincipal extends AppCompatActivity {
     void Remplir_Liste_Recette(){
         //Il faut avant cela recreer la tab des compositions
         String [] tab_compo_txt = String.valueOf(rct_ing).replace("[","").replace("]","").split(", "); //on obtient tableau de ing/type/qtt
-        //[ing/type/qtt,ing/type/qtt,ing/type/qtt]
+        //format comme [ing/type/qtt,ing/type/qtt,ing/type/qtt]
 
         int i = 0;
         while(i!=rct_id.size()){
@@ -108,8 +108,6 @@ public class MenuPrincipal extends AppCompatActivity {
                 Ingredient ign = new Ingredient(ingredient[k].split("/")[0],ingredient[k].split("/")[1]); //création d'un ingrédient
                 Tab_Compo.add(new Composition(ign,Integer.parseInt(ingredient[k].split("/")[2]))); //creation et ajout d'une compo
                 k++;
-
-
             }
             Recette rct = new Recette(rct_titre.get(i),rct_inst.get(i),rct_diff.get(i),
                     rct_tmps.get(i),1,Integer.parseInt(rct_image.get(i)),Tab_Compo); //String to int
@@ -117,6 +115,5 @@ public class MenuPrincipal extends AppCompatActivity {
             Livre_rct.AjouterRecetteDansListe(rct);
             i++;
         }
-
     }
 }

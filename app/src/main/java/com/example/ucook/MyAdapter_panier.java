@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyViewHolder>{
+public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyViewHolder>{ //permet d'adapter les ingrédients dans le RecyclerView du panier
 
     ArrayList Nom_ingredient, quantite, type, id;
     Context context;
@@ -43,7 +43,7 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyAdapter_panier.MyViewHolder holder, int position) {
         holder.titre_ing_txt.setText(String.valueOf(Nom_ingredient.get(position)).replace("_"," "));
-        mise_en_forme((String) type.get(position));
+        mise_en_forme((String) type.get(position)); //on met en forme le texte des ingrédients
         String Qte = multipl + quantite.get(position) + unite;
         holder.quantite_txt.setText(Qte);
         holder.titre_ing_txt.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +59,7 @@ public class MyAdapter_panier extends RecyclerView.Adapter<MyAdapter_panier.MyVi
 
     @Override
     public int getItemCount() {
-        return Nom_ingredient.size();
+        return Nom_ingredient.size(); //nombre d'item dans le RecyclerView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

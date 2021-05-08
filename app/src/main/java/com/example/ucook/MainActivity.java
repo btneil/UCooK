@@ -10,16 +10,6 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    //Gson gson = new Gson();
-
-    //Recette CroqueM = new Recette ("Croque-monsieur", "pas grand chose, cf Neil", 15, 4, "facile", 1,"@drawable/icon2");
-    //ListeDeRecettes LivreRecette = new ListeDeRecettes(CroqueM);
-
-    //String json = gson.toJson(CroqueM); //on met CroqueM dans le Json
-
-
-
     private Button Menu_btn;
     private ImageButton shoppingcart;
     private ImageButton Ajouter_rct_btn;
@@ -36,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         Menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //basculer vers Liste de recette
                 Intent Aff_Menu = new Intent(getApplicationContext(), MenuPrincipal.class);
                 startActivity(Aff_Menu);
                 finish();
@@ -45,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         shoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //basculer vers panier
                 Intent Aff_Panier = new Intent(getApplicationContext(), AfficherPanier.class);
                 startActivity(Aff_Panier);
                 finish();
@@ -54,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         Ajouter_rct_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //basculer vers affichage recette
                 Intent intent = new Intent(MainActivity.this, Ajouter_Recette.class);
                 startActivity(intent);
             }

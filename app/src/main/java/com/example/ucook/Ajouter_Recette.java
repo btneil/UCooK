@@ -30,6 +30,7 @@ public class Ajouter_Recette extends AppCompatActivity {
         tmps_rct = findViewById(R.id.tmps_rct);
         instructions_rct = findViewById(R.id.instructions);
         add_btn = findViewById(R.id.add_btn);
+
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

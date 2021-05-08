@@ -26,7 +26,6 @@ public class AffichageRecette extends AppCompatActivity {
     TextView Ingredients_txt;
     TextView tmps_rct_txt;
 
-
     String data1, data2, instructions, ingredients,ing_type, ing_txt, temps_rct;
     int images;
 
@@ -45,11 +44,8 @@ public class AffichageRecette extends AppCompatActivity {
         Ingredients_txt = findViewById(R.id.Ingredients_txt);
         tmps_rct_txt = findViewById(R.id.tmps_rct_txt);
 
-
         getData(); //ces 2 méthodes font passer les infos d'une activité à l'autre
         setData(); //les 2 méthodes sont crées plus bas
-
-
 
         this.home_btn = findViewById(R.id.home_btn);
         this.ajouter_panier_btn = findViewById(R.id.ajouter_panier_btn);

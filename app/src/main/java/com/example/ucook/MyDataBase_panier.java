@@ -13,8 +13,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATA_BASE_NAME ="Panier";
-    private static final int DATA_BASE_VERSION =15;
-
+    private static final int DATA_BASE_VERSION =17;
     private static final String TABLE_NAME = "ma_liste";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_INGR = "ingrédient";
@@ -34,9 +33,7 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
                 COLUMN_INGR + " TEXT, " +
                 COLUMN_TYPE + " TEXT, " +
                 COLUMN_QTE + " int);"; //Declaration du SQL dans query, ATTENTION AUX ESPACES ! ! ! +Int plutot que string plus malin, mais pb??? à revoir
-
         db.execSQL(query);
-
     }
 
     @Override
@@ -49,13 +46,13 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase(); //pour écrire das la bdd
         ContentValues cv = new ContentValues(); //ce qui permet d'écrire dans la bdd
 
-        cv.put(COLUMN_INGR, ingredient);
+        cv.put(COLUMN_INGR, ingredient); //on ajoute les 3 champs suivants dans la bdd
         cv.put(COLUMN_TYPE, type);
         cv.put(COLUMN_QTE,qte);
 
         long result = db.insert(TABLE_NAME,null, cv);
         if (result==-1){ // si l'appli échoue
-            Toast.makeText(context, "Une erreur c'est produite", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Une erreur c'est produite", Toast.LENGTH_SHORT).show(); //on affiche le message suivant dans l'appli
         }
     }
 
@@ -65,23 +62,22 @@ public class MyDataBase_panier extends SQLiteOpenHelper {
 
         Cursor cursor = null;
         if(db!=null){
-            cursor = db.rawQuery(query, null);
+            cursor = db.rawQuery(query, null); //cursor contient maintenant toute la bdd
         }
         return cursor; //cursor contient donc mtn toute la bdd
     }
 
-    void updateData(String rows_id, int qte){
+    void updateData(String rows_id, int qte){ //pour modifier la quantité d'un ingrédient déjà existant
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_QTE, qte);
-
-        long result = db.update(TABLE_NAME, cv,"_id=?", new String[]{rows_id});
+        long result = db.update(TABLE_NAME, cv,"_id=?", new String[]{rows_id}); //on stocke le resultat dans long result
         if(result == -1){
             Toast.makeText(context, "ECHEC DE L'AJOUT DE LA QTE", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void Supp_1_item(String id_item){
+    void Supp_1_item(String id_item){ //supression d'un ingrédient
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME,"_id=?", new String[]{id_item});
         if (result == -1){

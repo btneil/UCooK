@@ -27,8 +27,10 @@ public class Ajout_ingredient extends AppCompatActivity {
         setContentView(R.layout.activity_ajout_ingredient);
         recyclerview_Ing = findViewById(R.id.recyclerview_Ing);
         confirmer_btn = findViewById(R.id.confirmer_btn);
+
         getData();
-        setData();
+        setData();//récupération puis affichage des données
+
         ing_nom = new ArrayList<>();
         ing_qte = new ArrayList<>();
         ing_id = new ArrayList<>();
@@ -62,7 +64,7 @@ public class Ajout_ingredient extends AppCompatActivity {
 
 
     }
-    private void getData(){
+    private void getData(){ //récupérer données
         if(getIntent().hasExtra("composition")){ // on vérifie que composition existe
             composition = getIntent().getStringExtra("composition");
             ing_type = getIntent().getStringExtra("ing_type");
@@ -72,12 +74,12 @@ public class Ajout_ingredient extends AppCompatActivity {
         }
         Tab_Compo = composition.split("\n");
     }
-    private void setData(){
+    private void setData(){ //afficher les données
         MyAdapter_Ajout_Ing myAdapter = new MyAdapter_Ajout_Ing(Ajout_ingredient.this,this,Tab_Compo);
         recyclerview_Ing.setAdapter(myAdapter);
         recyclerview_Ing.setLayoutManager(new LinearLayoutManager(this));
     }
-    private boolean Ingredient_deja_present(MyDataBase_panier MyDB, String Nom_ing){
+    private boolean Ingredient_deja_present(MyDataBase_panier MyDB, String Nom_ing){ //on vérifie si l'ingrédient est déjà présent
         boolean ingredient_deja_present = false;
         Cursor cursor = MyDB.readAllData();
         ing_nom.clear();
@@ -100,7 +102,7 @@ public class Ajout_ingredient extends AppCompatActivity {
         return ingredient_deja_present;
     }
 
-    private String recup_ancienne_qte(MyDataBase_panier MyDB, String Nom_ing){
+    private String recup_ancienne_qte(MyDataBase_panier MyDB, String Nom_ing){ //on récupère l'aancienne quantité de l'ingrédient passé en argument
         Cursor cursor = MyDB.readAllData();
         if(cursor.getCount() != 0){
             while(cursor.moveToNext()){

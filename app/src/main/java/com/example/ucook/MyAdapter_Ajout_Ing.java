@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_Ing.MyViewHolder>{
+public class MyAdapter_Ajout_Ing extends RecyclerView.Adapter<MyAdapter_Ajout_Ing.MyViewHolder>{ //permet de remplir le recyclerView de Ajout_ingredient
 
     ArrayList<Ingredient> Composition;
     Context context;

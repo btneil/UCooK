@@ -6,8 +6,6 @@ public class Ingredient {
     public Ingredient (String nom, String type){
         Nom=nom;
         Type=type;
-
-
     }
 
 
